@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artizanat Dulce Tomis | Cofetăria Premium din Inima Constanței</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Artizanat Dulce Tomis - cofetăria premium din cartierul Tomis Plus, Constanța. Prăjituri artizanale, torturi personalizate, ingrediente naturale. Click & Collect disponibil.">
+  <meta name="keywords" content="cofetărie Tomis Plus, prăjituri artizanale Constanța, torturi personalizate, patiserie premium">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      /* Paleta Premium - Culori calde și pastelate */
+      --primary: #d4a574;      /* Caramel auriu */
+      --primary-dark: #b8925f;  /* Caramel închis */
+      --secondary: #f4e5d3;     /* Vanilie deschis */
+      --accent: #e8b4a0;        /* Roz pudrat */
+      --success: #b8d4a0;       /* Verde mentă */
+      --white: #fdfcfb;         /* Alb cald */
+      --cream: #faf7f0;         /* Cremă */
+      --text-dark: #3d2914;     /* Ciocolată neagră */
+      --text-medium: #6b5b47;   /* Caramel închis */
+      --text-light: #8a7968;    /* Caramel mediu */
+      --border: #e8ddd0;        /* Bej deschis */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    .heading-font {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(253, 252, 251, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-medium);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .cta-nav {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-nav:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--secondary) 50%, var(--white) 100%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-accent {
+      color: var(--primary);
+      position: relative;
+    }
+
+    .hero-accent::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: rgba(212, 165, 116, 0.3);
+      z-index: -1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-medium);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      padding: 1rem 2rem;
+      border: 2px solid var(--primary);
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-medium);
+      font-size: 0.9rem;
+    }
+
+    .badge-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image-main {
+      width: 100%;
+      height: 500px;
+      border-radius: 20px;
+      background: linear-gradient(45deg, var(--accent), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      font-size: 1.5rem;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-main::before {
+      content: '🧁';
+      font-size: 4rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.3;
+    }
+
+    /* BENEFITS SECTION */
+    .benefits {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .benefits-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-medium);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+    }
+
+    .benefit-card {
+      background: var(--cream);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(212, 165, 116, 0.15);
+    }
+
+    .benefit-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 2rem;
+    }
+
+    .benefit-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .benefit-description {
+      color: var(--text-medium);
+      line-height: 1.6;
+    }
+
+    /* PRODUCTS SECTION */
+    .products {
+      padding: 6rem 0;
+      background: var(--secondary);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-category {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      box-shadow: 0 5px 20px rgba(212, 165, 116, 0.1);
+    }
+
+    .product-category:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(212, 165, 116, 0.2);
+    }
+
+    .product-image {
+      height: 200px;
+      background: linear-gradient(45deg, var(--accent), var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+    }
+
+    .product-content {
+      padding: 2rem;
+    }
+
+    .product-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .product-description {
+      color: var(--text-medium);
+      margin-bottom: 1.5rem;
+    }
+
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    /* LOCATION SECTION */
+    .location {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .location-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .location-content h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .location-highlight {
+      background: var(--cream);
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border-left: 4px solid var(--primary);
+    }
+
+    .click-collect {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      margin-top: 2rem;
+    }
+
+    .click-collect h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .click-collect-steps {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .step {
+      flex: 1;
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      background: white;
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 0.5rem;
+    }
+
+    /* STORY SECTION */
+    .story {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+
+    .story-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .story-content {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--text-medium);
+      margin-bottom: 2rem;
+    }
+
+    .story-signature {
+      font-style: italic;
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding: 0 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand h3 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding-top: 2rem;
+      text-align: center;
+      color: #ccc;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-badges {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .location-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .click-collect-steps {
+        flex-direction: column;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .nav-mobile span {
+      width: 25px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .nav-mobile {
+        display: flex;
+      }
+    }
+
+    /* AUTOMATION & PAYMENT MODAL */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(-50px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--text-medium);
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--primary);
+    }
+
+    .order-form {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 1rem;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .order-summary {
+      background: var(--cream);
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .order-item:last-child {
+      border-bottom: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .payment-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .payment-method {
+      padding: 1rem;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .payment-method:hover,
+    .payment-method.selected {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, var(--secondary), var(--cream));
+    }
+
+    .payment-method .icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .payment-method .label {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .card-input {
+      background: var(--cream);
+      padding: 1.5rem;
+      border-radius: 15px;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .card-input.active {
+      display: block;
+    }
+
+    .security-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--success);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    /* AI CHATBOT */
+    .chatbot-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 9999;
+    }
+
+    .chatbot-trigger {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(212, 165, 116, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .chatbot-trigger:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+    }
+
+    .chatbot-trigger .notification {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: white;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 500px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chatbot-window.active {
+      display: flex;
+    }
+
+    .chatbot-header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chatbot-header h3 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .chatbot-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      background: var(--cream);
+    }
+
+    .message {
+      margin-bottom: 1rem;
+      animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .message.bot {
+      text-align: left;
+    }
+
+    .message.user {
+      text-align: right;
+    }
+
+    .message-content {
+      display: inline-block;
+      padding: 0.8rem 1rem;
+      border-radius: 15px;
+      max-width: 80%;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .message.bot .message-content {
+      background: white;
+      color: var(--text-dark);
+      border-bottom-left-radius: 5px;
+    }
+
+    .message.user .message-content {
+      background: var(--primary);
+      color: white;
+      border-bottom-right-radius: 5px;
+    }
+
+    .chatbot-input {
+      display: flex;
+      padding: 1rem;
+      gap: 0.5rem;
+      background: white;
+      border-top: 1px solid var(--border);
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      outline: none;
+    }
+
+    .chatbot-input button {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .chatbot-input button:hover {
+      background: var(--primary-dark);
+    }
+
+    .quick-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .quick-action {
+      padding: 0.5rem 1rem;
+      background: white;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .quick-action:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* NOTIFICATION SYSTEM */
+    .notification-container {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 10001;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .notification {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid var(--success);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      max-width: 350px;
+    }
+
+    .notification.show {
+      transform: translateX(0);
+    }
+
+    .notification.error {
+      border-left-color: #ef4444;
+    }
+
+    .notification.warning {
+      border-left-color: var(--warning);
+    }
+
+    .notification-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text-dark);
+    }
+
+    .notification-message {
+      font-size: 0.9rem;
+      color: var(--text-medium);
+    }
+
+    /* PROGRESS INDICATOR */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--border);
+      z-index: 10002;
+      display: none;
+    }
+
+    .progress-container.active {
+      display: block;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      width: 0%;
+      transition: width 0.3s ease;
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+
+    @media (max-width: 768px) {
+      .chatbot-window {
+        width: 90vw;
+        height: 70vh;
+      }
+      
+      .modal-content {
+        padding: 2rem 1.5rem;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .payment-methods {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#home" class="logo heading-font">Artizanat Dulce Tomis</a>
+    
+    <ul class="nav-links">
+      <li><a href="#home">Acasă</a></li>
+      <li><a href="#produse">Produse</a></li>
+      <li><a href="#comanda">Comandă</a></li>
+      <li><a href="#povestea">Povestea Noastră</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    
+    <div class="nav-mobile">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+    <a href="#comanda" class="cta-nav">Comandă Acum</a>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="heading-font">
+        Dulceața <span class="hero-accent">autentică</span><br>
+        proaspăt scos din cuptor
+      </h1>
+      
+      <p class="hero-subtitle">
+        În inima cartierului Tomis Plus, creăm prăjituri artizanale cu ingrediente naturale și rețete de familie, pentru comunitata noastră iubitoare de gustul autentic.
+      </p>
+      
+      <div class="hero-cta">
+        <a href="#comanda" class="btn-primary">
+          🍰 Comandă Online
+        </a>
+        <a href="#produse" class="btn-secondary">
+          👀 Vezi Produsele
+        </a>
+      </div>
+      
+      <div class="hero-badges">
+        <div class="badge">
+          <div class="badge-icon">📍</div>
+          <span>Tomis Plus, Constanța</span>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">🕐</div>
+          <span>Gata în 2-3 ore</span>
+        </div>
+        <div class="badge">
+          <div class="badge-icon">✨</div>
+          <span>100% Natural</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <div class="hero-image-main">
+        Fotografie cu prăjituri artizanale
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS SECTION -->
+<section class="benefits">
+  <div class="benefits-container">
+    <div class="section-header">
+      <h2 class="section-title heading-font">De ce ne alegi pe noi?</h2>
+      <p class="section-subtitle">
+        Fiecare prăjitură este o poveste de dragoste pentru gustul autentic și calitatea premium
+      </p>
+    </div>
+    
+    <div class="benefits-grid">
+      <div class="benefit-card fade-in stagger-1">
+        <div class="benefit-icon">🌿</div>
+        <h3 class="benefit-title">Ingrediente Premium</h3>
+        <p class="benefit-description">
+          Folosim doar ingrediente naturale de cea mai înaltă calitate: unt francez, ciocolată belgiană, fructe de sezon și ouă proaspete de la ferme locale din Dobrogea.
+        </p>
+      </div>
+      
+      <div class="benefit-card fade-in stagger-2">
+        <div class="benefit-icon">👩‍🍳</div>
+        <h3 class="benefit-title">Rețete Artizanale</h3>
+        <p class="benefit-description">
+          Fiecare prăjitură este preparată manual, cu pasiune și atenție la detalii, folosind rețete tradiționale îmbunătățite cu tehnici moderne de patiserie.
+        </p>
+      </div>
+      
+      <div class="benefit-card fade-in stagger-3">
+        <div class="benefit-icon">🏠</div>
+        <h3 class="benefit-title">Comunitate Locală</h3>
+        <p class="benefit-description">
+          Suntem mândri să facem parte din comunitatea Tomis Plus. Cunoaștem gusturile vecinilor noștri și creăm dulciuri care să aducă zâmbete în fiecare familie.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section id="produse" class="products">
+  <div class="benefits-container">
+    <div class="section-header">
+      <h2 class="section-title heading-font">Deliciosul nostru meniu</h2>
+      <p class="section-subtitle">
+        De la patiseria sărată pentru micul dejun, la torturile festive pentru evenimente speciale
+      </p>
+    </div>
+    
+    <div class="products-grid">
+      <div class="product-category">
+        <div class="product-image">🥐</div>
+        <div class="product-content">
+          <h3 class="product-title">Patiserie Sărată</h3>
+          <p class="product-description">
+            Croissante cu unt francez, quiche-uri cu legume de sezon, plăcinte rustice și sandwich-uri gourmet pentru micul dejun perfect.
+          </p>
+          <div class="product-price">15-35 RON</div>
+          <a href="#comanda" class="btn-secondary" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;">Vezi Toate</a>
+        </div>
+      </div>
+      
+      <div class="product-category">
+        <div class="product-image">🍰</div>
+        <div class="product-content">
+          <h3 class="product-title">Prăjituri de Vitrină</h3>
+          <p class="product-description">
+            Eclere cu cremă de vanilie, profiteroles cu ciocolată belgiană, tartlete cu fructe de pădure și cremă de mascarpone.
+          </p>
+          <div class="product-price">25-45 RON</div>
+          <a href="#comanda" class="btn-secondary" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;">Vezi Toate</a>
+        </div>
+      </div>
+      
+      <div class="product-category">
+        <div class="product-image">🎂</div>
+        <div class="product-content">
+          <h3 class="product-title">Torturi de Eveniment</h3>
+          <p class="product-description">
+            Torturi personalizate pentru zilele de naștere, nunți și aniversări. Design unic și gusturi care rămân în amintire.
+          </p>
+          <div class="product-price">150-800 RON</div>
+          <a href="#comanda" class="btn-secondary" style="font-size: 0.9rem; padding: 0.8rem 1.5rem;">Comandă</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION & CLICK & COLLECT -->
+<section class="location">
+  <div class="location-container">
+    <div class="location-content">
+      <h2 class="heading-font">Click & Collect din Tomis Plus</h2>
+      <p>
+        Comandă online și ridică direct din cofetăria noastră din cartierul Tomis Plus. 
+        Economisești timp și te asiguri că prăjiturile tale sunt mereu proaspete și perfecte.
+      </p>
+      
+      <div class="location-highlight">
+        <h4>📍 Locația noastră</h4>
+        <p><strong>Strada Tomis Plus nr. 15, Constanța</strong></p>
+        <p>Lângă Kaufland Tomis Plus, vizavi de farmacia Dona</p>
+        <p>🅿️ Parcare gratuită disponibilă</p>
+      </div>
+      
+      <div class="click-collect">
+        <h3>Cum funcționează Click & Collect?</h3>
+        <p>Sistemul nostru simplu și eficient pentru comunitata din Tomis Plus:</p>
+        
+        <div class="click-collect-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h5>Comandă</h5>
+            <p>Online sau telefonic</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h5>Pregătim</h5>
+            <p>În 2-3 ore</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h5>Ridici</h5>
+            <p>Din Tomis Plus</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <div class="hero-image-main" style="background: linear-gradient(45deg, var(--success), var(--accent));">
+        🗺️ Hartă Tomis Plus
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY SECTION -->
+<section id="povestea" class="story">
+  <div class="story-container">
+    <div class="section-header">
+      <h2 class="section-title heading-font">Povestea noastră dulce</h2>
+    </div>
+    
+    <div class="story-content">
+      <p>
+        Totul a început cu o pasiune descoperită recent pentru gustul autentic al prăjiturilor de casă. 
+        Când ne-am mutat în cartierul Tomis Plus, am realizat că comunitatea noastră merită ceva special - 
+        o cofetărie care să combine tradițiile culinare românești cu tehnicile moderne de patiserie.
+      </p>
+      
+      <p>
+        Am învățat secretele unei patiserii autentice de la maeștri confizieri din Paris și Viena, 
+        dar inima rețetelor noastre bate cu ritmul Dobrogei. Fiecare ingredient este ales cu grijă, 
+        fiecare rețetă este testată până la perfecțiune, iar fiecare prăjitură este o declarație de dragoste 
+        pentru comunitatea din Tomis Plus.
+      </p>
+      
+      <p>
+        Visul nostru? Să devenim locul unde vecinii se întâlnesc pentru un coffee break perfect, 
+        unde copiii își sărbătoresc zilele de naștere cu torturi de vis, și unde fiecare mușcătură 
+        să readucă amintiri dulci din copilărie.
+      </p>
+    </div>
+    
+    <div class="story-signature">
+      Cu dragoste și zahăr pudră,<br>
+      <strong>Echipa Artizanat Dulce Tomis</strong>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3 class="heading-font">Artizanat Dulce Tomis</h3>
+      <p>Cofetăria premium din inima cartierului Tomis Plus, unde fiecare prăjitură este o mică operă de artă culinară.</p>
+      <p style="margin-top: 1rem;">
+        <strong>📍 Strada Tomis Plus nr. 15, Constanța</strong><br>
+        📞 0741 234 567<br>
+        📧 comenzi@artizanatdulce.ro
+      </p>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Meniu</h4>
+      <ul>
+        <li><a href="#produse">Patiserie Sărată</a></li>
+        <li><a href="#produse">Prăjituri de Vitrină</a></li>
+        <li><a href="#produse">Torturi Personalizate</a></li>
+        <li><a href="#comanda">Comenzi Online</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="#povestea">Povestea Noastră</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>Lun-Sam: 7:00-20:00</li>
+        <li>Duminică: 8:00-18:00</li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Urmărește-ne</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">Google Reviews</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2026 Artizanat Dulce Tomis. Toate drepturile rezervate. | Website creat de <a href="https://vasi014.github.io/portofoliu-/" style="color: var(--primary);">Anghelus Digital Solutions</a></p>
+  </div>
+</footer>
+
+<!-- PAYMENT & ORDER MODAL -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    
+    <h2 class="heading-font" style="color: var(--primary); margin-bottom: 2rem;">Comandă Online</h2>
+    
+    <form class="order-form" id="orderForm">
+      <!-- Customer Info -->
+      <div class="form-group">
+        <label>Nume complet *</label>
+        <input type="text" name="name" required placeholder="Ioan Popescu">
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Telefon *</label>
+          <input type="tel" name="phone" required placeholder="0741 234 567">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="ioan@email.ro">
+        </div>
+      </div>
+      
+      <!-- Product Selection -->
+      <div class="form-group">
+        <label>Categorie produs *</label>
+        <select name="category" required onchange="updateProductOptions()">
+          <option value="">Selectează categoria</option>
+          <option value="patiserie">Patiserie Sărată (15-35 RON)</option>
+          <option value="prajituri">Prăjituri de Vitrină (25-45 RON)</option>
+          <option value="torturi">Torturi de Eveniment (150-800 RON)</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>Produs specific</label>
+        <select name="product" id="productSelect">
+          <option value="">Selectează mai întâi categoria</option>
+        </select>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label>Cantitate *</label>
+          <input type="number" name="quantity" value="1" min="1" required onchange="updateTotal()">
+        </div>
+        <div class="form-group">
+          <label>Data ridicare *</label>
+          <input type="date" name="pickupDate" required>
+        </div>
+      </div>
+      
+      <!-- Special Instructions -->
+      <div class="form-group">
+        <label>Instrucțiuni speciale</label>
+        <textarea name="instructions" rows="3" placeholder="Ex: tort personalizat cu mesajul 'La mulți ani Ana!', fără ciocolată, etc."></textarea>
+      </div>
+      
+      <!-- Order Summary -->
+      <div class="order-summary">
+        <h4>Sumar comandă</h4>
+        <div id="orderItems">
+          <div class="order-item">
+            <span>Selectează produsele</span>
+            <span>0 RON</span>
+          </div>
+        </div>
+        <div class="order-item">
+          <span><strong>Total de plată</strong></span>
+          <span id="orderTotal"><strong>0 RON</strong></span>
+        </div>
+      </div>
+      
+      <!-- Payment Method -->
+      <div class="form-group">
+        <label>Metodă de plată</label>
+        <div class="payment-methods">
+          <div class="payment-method" onclick="selectPayment('card')">
+            <div class="icon">💳</div>
+            <div class="label">Card Bancar</div>
+          </div>
+          <div class="payment-method" onclick="selectPayment('cash')">
+            <div class="icon">💰</div>
+            <div class="label">Numerar la ridicare</div>
+          </div>
+          <div class="payment-method" onclick="selectPayment('transfer')">
+            <div class="icon">🏦</div>
+            <div class="label">Transfer Bancar</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card Payment Details -->
+      <div id="cardPayment" class="card-input">
+        <div class="form-group">
+          <label>Numărul cardului</label>
+          <input type="text" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" onkeyup="formatCard(this)">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Expirare (MM/AA)</label>
+            <input type="text" name="expiry" placeholder="12/28" maxlength="5" onkeyup="formatExpiry(this)">
+          </div>
+          <div class="form-group">
+            <label>CVV</label>
+            <input type="text" name="cvv" placeholder="123" maxlength="4">
+          </div>
+        </div>
+        <div class="security-badge">
+          🔒 Plata securizată SSL 256-bit
+        </div>
+      </div>
+      
+      <!-- Submit Button -->
+      <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">
+        <span id="submitText">🛒 Finalizează comanda</span>
+      </button>
+      
+    </form>
+  </div>
+</div>
+
+<!-- AI CHATBOT ASSISTANT -->
+<div class="chatbot-container">
+  <button class="chatbot-trigger" onclick="toggleChatbot()">
+    🤖
+    <span class="notification" id="chatNotification">1</span>
+  </button>
+  
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">
+      <div>
+        <h3>🍰 Asistent Dulce</h3>
+        <div class="chatbot-status">
+          <span class="status-dot"></span>
+          <span>Online acum</span>
+        </div>
+      </div>
+      <button onclick="toggleChatbot()" style="background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer;">×</button>
+    </div>
+    
+    <div class="chatbot-messages" id="chatMessages">
+      <div class="message bot">
+        <div class="message-content">
+          Bună! Sunt asistentul virtual al cofetăriei Artizanat Dulce Tomis. Cu ce te pot ajuta astăzi? 🍰
+        </div>
+      </div>
+      
+      <div class="quick-actions">
+        <button class="quick-action" onclick="sendQuickMessage('preturi')">Vezi prețuri</button>
+        <button class="quick-action" onclick="sendQuickMessage('meniu')">Meniu complet</button>
+        <button class="quick-action" onclick="sendQuickMessage('comanda')">Fac o comandă</button>
+        <button class="quick-action" onclick="sendQuickMessage('locatie')">Locație & program</button>
+      </div>
+    </div>
+    
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Scrie întrebarea ta..." onkeypress="handleChatEnter(event)">
+      <button onclick="sendChatMessage()">➤</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTIFICATION SYSTEM -->
+<div class="notification-container" id="notificationContainer"></div>
+
+<!-- PROGRESS INDICATOR -->
+<div class="progress-container" id="progressContainer">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<script>
+// === PREMIUM AUTOMATION & PAYMENT SYSTEM ===
+
+// Global state management
+let currentOrder = {
+  items: [],
+  total: 0,
+  paymentMethod: '',
+  customerInfo: {}
+};
+
+// Product database with real pricing
+const productDatabase = {
+  patiserie: {
+    'croissant-clasic': { name: 'Croissant clasic cu unt francez', price: 15 },
+    'croissant-ciocolata': { name: 'Croissant cu ciocolată belgiană', price: 18 },
+    'quiche-legume': { name: 'Quiche cu legume de sezon', price: 25 },
+    'placinta-branza': { name: 'Plăcintă cu brânză și mărar', price: 20 },
+    'sandwich-gourmet': { name: 'Sandwich gourmet cu prosciutto', price: 35 }
+  },
+  prajituri: {
+    'ecler-vanilie': { name: 'Ecler cu cremă de vanilie', price: 25 },
+    'profiterol-ciocolata': { name: 'Profiterol cu ciocolată belgiană', price: 28 },
+    'tartleta-fructe': { name: 'Tartletă cu fructe de pădure', price: 35 },
+    'tiramisu-casa': { name: 'Tiramisu de casă', price: 40 },
+    'cremeschnitt': { name: 'Cremeschnitt tradițional', price: 30 },
+    'opera-cake': { name: 'Prăjitură Opera', price: 45 }
+  },
+  torturi: {
+    'tort-ciocolata': { name: 'Tort cu ciocolată și fructe', price: 150 },
+    'tort-red-velvet': { name: 'Tort Red Velvet', price: 180 },
+    'tort-personalizat': { name: 'Tort personalizat (design custom)', price: 250 },
+    'tort-nunta': { name: 'Tort de nuntă (3 etaje)', price: 500 },
+    'tort-aniversare': { name: 'Tort aniversare cu figurine', price: 200 },
+    'tort-premium': { name: 'Tort premium cu aur comestibil', price: 800 }
+  }
+};
+
+// === MODAL MANAGEMENT ===
+function openOrderModal() {
+  const modal = document.getElementById('orderModal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  
+  // Set minimum pickup date (next day)
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  document.querySelector('input[name="pickupDate"]').min = tomorrow.toISOString().split('T')[0];
+  
+  // Show progress
+  showProgress(20);
+  
+  // Analytics tracking
+  trackEvent('modal_opened', { type: 'order' });
+}
+
+function closeModal() {
+  const modal = document.getElementById('orderModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+  hideProgress();
+}
+
+// === PRODUCT MANAGEMENT ===
+function updateProductOptions() {
+  const category = document.querySelector('select[name="category"]').value;
+  const productSelect = document.getElementById('productSelect');
+  
+  // Clear previous options
+  productSelect.innerHTML = '<option value="">Selectează produsul</option>';
+  
+  if (category && productDatabase[category]) {
+    Object.entries(productDatabase[category]).forEach(([key, product]) => {
+      const option = document.createElement('option');
+      option.value = key;
+      option.textContent = `${product.name} - ${product.price} RON`;
+      option.dataset.price = product.price;
+      productSelect.appendChild(option);
+    });
+    
+    productSelect.onchange = updateTotal;
+    showProgress(40);
+  }
+}
+
+function updateTotal() {
+  const category = document.querySelector('select[name="category"]').value;
+  const productKey = document.querySelector('select[name="product"]').value;
+  const quantity = parseInt(document.querySelector('input[name="quantity"]').value) || 0;
+  
+  let total = 0;
+  let itemsHtml = '';
+  
+  if (category && productKey && productDatabase[category][productKey]) {
+    const product = productDatabase[category][productKey];
+    const itemTotal = product.price * quantity;
+    total = itemTotal;
+    
+    itemsHtml = `
+      <div class="order-item">
+        <span>${quantity}x ${product.name}</span>
+        <span>${itemTotal} RON</span>
+      </div>
+    `;
+  } else {
+    itemsHtml = `
+      <div class="order-item">
+        <span>Selectează produsele</span>
+        <span>0 RON</span>
+      </div>
+    `;
+  }
+  
+  document.getElementById('orderItems').innerHTML = itemsHtml;
+  document.getElementById('orderTotal').innerHTML = `<strong>${total} RON</strong>`;
+  
+  currentOrder.total = total;
+  
+  if (total > 0) {
+    showProgress(60);
+  }
+}
+
+// === PAYMENT PROCESSING ===
+function selectPayment(method) {
+  // Remove previous selection
+  document.querySelectorAll('.payment-method').forEach(el => {
+    el.classList.remove('selected');
+  });
+  
+  // Add selection to clicked method
+  event.target.closest('.payment-method').classList.add('selected');
+  currentOrder.paymentMethod = method;
+  
+  // Show/hide card payment form
+  const cardPayment = document.getElementById('cardPayment');
+  if (method === 'card') {
+    cardPayment.classList.add('active');
+    showProgress(80);
+  } else {
+    cardPayment.classList.remove('active');
+    showProgress(75);
+  }
+  
+  // Update submit button text
+  const submitBtn = document.getElementById('submitText');
+  switch(method) {
+    case 'card':
+      submitBtn.innerHTML = '💳 Plătește cu cardul';
+      break;
+    case 'cash':
+      submitBtn.innerHTML = '💰 Comandă (plată la ridicare)';
+      break;
+    case 'transfer':
+      submitBtn.innerHTML = '🏦 Comandă (transfer bancar)';
+      break;
+  }
+  
+  trackEvent('payment_method_selected', { method });
+}
+
+// === CARD FORMATTING ===
+function formatCard(input) {
+  let value = input.value.replace(/\D/g, '');
+  value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+  input.value = value;
+}
+
+function formatExpiry(input) {
+  let value = input.value.replace(/\D/g, '');
+  if (value.length >= 2) {
+    value = value.substring(0,2) + '/' + value.substring(2,4);
+  }
+  input.value = value;
+}
+
+// === ORDER PROCESSING ===
+document.getElementById('orderForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  showProgress(90);
+  
+  const formData = new FormData(e.target);
+  const orderData = {
+    customer: {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      email: formData.get('email')
+    },
+    items: [{
+      category: formData.get('category'),
+      product: formData.get('product'),
+      quantity: formData.get('quantity')
+    }],
+    total: currentOrder.total,
+    pickupDate: formData.get('pickupDate'),
+    instructions: formData.get('instructions'),
+    paymentMethod: currentOrder.paymentMethod,
+    timestamp: new Date().toISOString()
+  };
+  
+  try {
+    // Simulate payment processing
+    await processPayment(orderData);
+    
+    // Show success
+    showProgress(100);
+    showNotification('success', 'Comandă confirmată!', 
+      `Comanda ta #${generateOrderNumber()} a fost înregistrată cu succes. Te vom contacta în 30 minute pentru confirmarea finală.`);
+    
+    // Send confirmation to chatbot
+    addChatMessage('bot', `🎉 Comanda ta a fost confirmată! Numărul comenzii: #${generateOrderNumber()}. Vei fi contactat în 30 minute pentru detalii finale.`);
+    
+    // Reset form and close modal
+    setTimeout(() => {
+      closeModal();
+      e.target.reset();
+      updateTotal();
+      hideProgress();
+    }, 2000);
+    
+    // Analytics
+    trackEvent('order_completed', { total: currentOrder.total, method: currentOrder.paymentMethod });
+    
+  } catch (error) {
+    showNotification('error', 'Eroare la procesare', 'Te rugăm să încerci din nou sau să ne contactezi telefonic.');
+    hideProgress();
+  }
+});
+
+async function processPayment(orderData) {
+  return new Promise((resolve, reject) => {
+    // Simulate API call delay
+    setTimeout(() => {
+      if (orderData.paymentMethod === 'card') {
+        // Simulate card processing
+        console.log('Processing card payment...');
+        // In real app: integrate with Stripe, PayPal, etc.
+      }
+      
+      // Simulate success (95% success rate)
+      if (Math.random() > 0.05) {
+        resolve({ success: true, transactionId: generateTransactionId() });
+      } else {
+        reject(new Error('Payment failed'));
+      }
+    }, 2000);
+  });
+}
+
+// === CHATBOT AI ASSISTANT ===
+let chatbotActive = false;
+
+function toggleChatbot() {
+  const window = document.getElementById('chatbotWindow');
+  const notification = document.getElementById('chatNotification');
+  
+  chatbotActive = !chatbotActive;
+  
+  if (chatbotActive) {
+    window.classList.add('active');
+    notification.style.display = 'none';
+    trackEvent('chatbot_opened');
+  } else {
+    window.classList.remove('active');
+  }
+}
+
+function sendChatMessage() {
+  const input = document.getElementById('chatInput');
+  const message = input.value.trim();
+  
+  if (message) {
+    addChatMessage('user', message);
+    input.value = '';
+    
+    // Simulate AI processing
+    setTimeout(() => {
+      const response = generateChatResponse(message);
+      addChatMessage('bot', response);
+    }, 800);
+    
+    trackEvent('chat_message_sent', { message: message.substring(0, 50) });
+  }
+}
+
+function handleChatEnter(event) {
+  if (event.key === 'Enter') {
+    sendChatMessage();
+  }
+}
+
+function sendQuickMessage(type) {
+  const quickMessages = {
+    'preturi': 'Care sunt prețurile?',
+    'meniu': 'Arată-mi meniul complet',
+    'comanda': 'Vreau să fac o comandă',
+    'locatie': 'Unde vă găsesc și care e programul?'
+  };
+  
+  const message = quickMessages[type];
+  addChatMessage('user', message);
+  
+  setTimeout(() => {
+    const response = generateChatResponse(message);
+    addChatMessage('bot', response);
+  }, 600);
+}
+
+function addChatMessage(sender, message) {
+  const messagesContainer = document.getElementById('chatMessages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `message ${sender}`;
+  
+  messageDiv.innerHTML = `
+    <div class="message-content">${message}</div>
+  `;
+  
+  messagesContainer.appendChild(messageDiv);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+function generateChatResponse(userMessage) {
+  const msg = userMessage.toLowerCase();
+  
+  // AI Response Logic
+  if (msg.includes('preț') || msg.includes('cost') || msg.includes('bani')) {
+    return `🍰 Prețurile noastre:
+<br>• Patiserie sărată: 15-35 RON
+<br>• Prăjituri de vitrină: 25-45 RON  
+<br>• Torturi personalizate: 150-800 RON
+<br><br>Vrei să vezi produse specifice?`;
+  }
+  
+  if (msg.includes('meniu') || msg.includes('produse') || msg.includes('ce aveți')) {
+    return `📋 Meniul nostru include:
+<br><br>🥐 <strong>Patiserie Sărată:</strong> Croissante, quiche-uri, plăcinte
+<br>🍰 <strong>Prăjituri de Vitrină:</strong> Eclere, profiteroles, tartlete
+<br>🎂 <strong>Torturi de Eveniment:</strong> Personalizate pentru orice sărbătoare
+<br><br>Deschizi meniul complet? 👆`;
+  }
+  
+  if (msg.includes('comandă') || msg.includes('comand') || msg.includes('cumpăr')) {
+    return `🛒 Perfect! Ai două opțiuni:
+<br><br>1️⃣ <strong>Comandă Online</strong> - Completezi formularul și plătești cu cardul
+<br>2️⃣ <strong>Click & Collect</strong> - Alegi produsele și plătești la ridicare
+<br><br>Ce preferi? Să deschid formularul de comandă? 🍰`;
+  }
+  
+  if (msg.includes('locație') || msg.includes('unde') || msg.includes('program') || msg.includes('când')) {
+    return `📍 <strong>Ne găsești în Tomis Plus:</strong>
+<br>Strada Tomis Plus nr. 15, Constanța
+<br>Lângă Kaufland Tomis Plus
+<br><br>🕐 <strong>Program:</strong>
+<br>Lun-Sâm: 7:00-20:00
+<br>Duminică: 8:00-18:00
+<br><br>🅿️ Parcare gratuită disponibilă!`;
+  }
+  
+  if (msg.includes('tort') || msg.includes('aniversare') || msg.includes('nuntă')) {
+    return `🎂 Torturile noastre personalizate sunt speciale!
+<br><br>✨ Design complet personalizat
+<br>🎨 Orice formă și culoare
+<br>📝 Mesaje personalizate
+<br>⏰ Gata în 24-48 ore
+<br><br>Prețuri de la 150 RON. Vrei să discutăm despre tortul tău? 💕`;
+  }
+  
+  // Default response
+  return `Mulțumesc pentru întrebare! 😊 
+<br><br>Pentru informații detaliate, te pot pune în legătură cu echipa noastră la <strong>0741 234 567</strong> sau poți folosi butoanele de mai jos pentru întrebări frecvente.
+<br><br>Cu ce altceva te pot ajuta? 🍰`;
+}
+
+// === NOTIFICATION SYSTEM ===
+function showNotification(type, title, message) {
+  const container = document.getElementById('notificationContainer');
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  
+  notification.innerHTML = `
+    <div class="notification-title">${title}</div>
+    <div class="notification-message">${message}</div>
+  `;
+  
+  container.appendChild(notification);
+  
+  // Animate in
+  setTimeout(() => {
+    notification.classList.add('show');
+  }, 100);
+  
+  // Auto remove
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => {
+      container.removeChild(notification);
+    }, 300);
+  }, 5000);
+}
+
+// === PROGRESS INDICATOR ===
+function showProgress(percentage) {
+  const container = document.getElementById('progressContainer');
+  const bar = document.getElementById('progressBar');
+  
+  container.classList.add('active');
+  bar.style.width = percentage + '%';
+}
+
+function hideProgress() {
+  const container = document.getElementById('progressContainer');
+  setTimeout(() => {
+    container.classList.remove('active');
+  }, 500);
+}
+
+// === UTILITY FUNCTIONS ===
+function generateOrderNumber() {
+  return 'ADT' + Date.now().toString().slice(-6);
+}
+
+function generateTransactionId() {
+  return 'TXN' + Date.now() + Math.random().toString(36).substr(2, 5);
+}
+
+function trackEvent(eventName, properties = {}) {
+  // Analytics integration (Google Analytics, Facebook Pixel, etc.)
+  console.log('Event:', eventName, properties);
+  
+  // Example: Google Analytics 4
+  // gtag('event', eventName, properties);
+  
+  // Example: Facebook Pixel
+  // fbq('track', eventName, properties);
+}
+
+// === PREMIUM ANIMATIONS & INTERACTIONS ===
+function initPremiumInteractions() {
+  // Smooth scroll enhancements
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Navbar premium effects
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.style.background = 'rgba(253, 252, 251, 0.98)';
+      navbar.style.boxShadow = '0 5px 20px rgba(212, 165, 116, 0.1)';
+    } else {
+      navbar.style.background = 'rgba(253, 252, 251, 0.95)';
+      navbar.style.boxShadow = 'none';
+    }
+  });
+
+  // Premium button interactions
+  document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-3px) scale(1.02)';
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+
+  // Animation on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+}
+
+// === INITIALIZATION ===
+document.addEventListener('DOMContentLoaded', function() {
+  initPremiumInteractions();
+  
+  // Update all order buttons to open modal
+  document.querySelectorAll('a[href="#comanda"], .cta-nav').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      openOrderModal();
+    });
+  });
+
+  // Show chatbot notification after 10 seconds
+  setTimeout(() => {
+    const notification = document.getElementById('chatNotification');
+    if (notification && !chatbotActive) {
+      notification.style.display = 'flex';
+    }
+  }, 10000);
+
+  // Welcome notification
+  setTimeout(() => {
+    showNotification('success', 'Bine ai venit! 🍰', 'Descoperă dulciurile noastre artizanale din Tomis Plus. Comandă online cu livrare în 2-3 ore!');
+  }, 3000);
+
+  console.log('🍰 Artizanat Dulce Tomis - Premium automation system loaded!');
+  trackEvent('website_loaded');
+});
+
+// === CLICK & COLLECT AUTOMATION ===
+function simulateClickCollect() {
+  const steps = [
+    { text: 'Comandă primită și confirmată', delay: 1000 },
+    { text: 'Ingredientele sunt pregătite', delay: 2000 },
+    { text: 'Produsul este în curs de preparare', delay: 3000 },
+    { text: 'Finalizarea și ambalarea', delay: 1000 },
+    { text: '🎉 Comanda este gata pentru ridicare!', delay: 500 }
+  ];
+  
+  let currentStep = 0;
+  
+  const interval = setInterval(() => {
+    console.log(`Step ${currentStep + 1}: ${steps[currentStep].text}`);
+    
+    if (chatbotActive) {
+      addChatMessage('bot', `📦 ${steps[currentStep].text}`);
+    }
+    
+    currentStep++;
+    
+    if (currentStep >= steps.length) {
+      clearInterval(interval);
+      showNotification('success', 'Comandă gata! 🎉', 'Produsul tău este gata pentru ridicare din Tomis Plus!');
+    }
+  }, steps[currentStep]?.delay || 1000);
+}
+
+// Export for global access
+window.ArtizanatDulce = {
+  openOrderModal,
+  closeModal,
+  toggleChatbot,
+  simulateClickCollect,
+  trackEvent
+};
+</script>
+
+</body>
+</html>
