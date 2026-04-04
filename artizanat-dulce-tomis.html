@@ -2093,12 +2093,17 @@ document.addEventListener('DOMContentLoaded', function() {
   initPremiumInteractions();
   
   // Update all order buttons to open modal
-  document.querySelectorAll('a[href="#comanda"], .cta-nav').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
+  // Update all order buttons to open modal  
+document.querySelectorAll('a[href="#comanda"], .cta-nav, a[href="#contact"]').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (typeof openOrderModal === 'function') {
       openOrderModal();
-    });
+    } else {
+      console.error('openOrderModal function not found');
+    }
   });
+});
 
   // Show chatbot notification after 10 seconds
   setTimeout(() => {
