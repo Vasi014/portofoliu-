@@ -2153,7 +2153,50 @@ window.ArtizanatDulce = {
   simulateClickCollect,
   trackEvent
 };
-}
+  // === CONTACT FORM HANDLER ===
+function handleSubmit(event) {
+  event.preventDefault();
+  
+  const form = event.target;
+  const formData = new FormData(form);
+  
+  const contactData = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    company: formData.get('company'),
+    project: formData.get('project'),
+    budget: formData.get('budget'),
+    message: formData.get('message'),
+    timestamp: new Date().toISOString()
+  };
+  
+  // Schimbă butonul în "Se trimite..."
+  const submitBtn = form.querySelector('.form-submit');
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Se trimite...';
+  submitBtn.disabled = true;
+  
+  // Simulează trimiterea
+  setTimeout(() => {
+    // Success message
+    submitBtn.style.background = '#22c55e';
+    submitBtn.textContent = '✓ Mesaj trimis!';
+    
+    console.log('Contact form submitted:', contactData);
+    
+    // Reset form după 3 secunde
+    setTimeout(() => {
+      form.reset();
+      submitBtn.style.background = '';
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }, 3000);
+    
+  }, 1500);
+  
+  return false;
+};
+  }
 </script>
 
 </body>
