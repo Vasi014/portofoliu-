@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mulțumim pentru încredere! - Anghelus Digital Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #06b6d4;
+      --success: #22c55e;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-600: #475569;
+      --gray-900: #0f172a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--gray-900);
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 3rem 2rem;
+      text-align: center;
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--success) 0%, #16a34a 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 2.5rem;
+      color: white;
+      animation: bounceIn 0.8s ease-out;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--gray-600);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .info-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-list li {
+      padding: 0.5rem 0;
+      color: var(--gray-600);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-list li:before {
+      content: '✓';
+      color: var(--success);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .contact-info {
+      background: var(--gray-50);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+
+    .contact-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--gray-900);
+    }
+
+    .contact-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-600);
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      margin: 0.5rem;
+      transition: transform 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .footer-text {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-details {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="success-icon">
+    ✓
+  </div>
+  
+  <h1>Mulțumim pentru încredere!</h1>
+  
+  <p class="subtitle">
+    Cererea ta a fost trimisă cu succes. Vei primi o ofertă personalizată în cel mult 24 de ore.
+  </p>
+
+  <div class="info-box">
+    <div class="info-title">Ce se întâmplă următorul:</div>
+    <ul class="info-list">
+      <li>Analizez cerința ta și calculez prețul exact</li>
+      <li>Creez o ofertă personalizată cu detalii tehnice</li>
+      <li>Te contact în 24h pentru discutarea proiectului</li>
+      <li>Stabilim împreună timeline-ul și pașii următorii</li>
+    </ul>
+  </div>
+
+  <div class="contact-info">
+    <div class="contact-title">Informații de contact:</div>
+    <div class="contact-details">
+      <div class="contact-item">
+        <span>📧</span>
+        <span>vasy_anghelus01@yahoo.com</span>
+      </div>
+      <div class="contact-item">
+        <span>📞</span>
+        <span>Răspund în 24h</span>
+      </div>
+      <div class="contact-item">
+        <span>📍</span>
+        <span>Constanța, România</span>
+      </div>
+      <div class="contact-item">
+        <span>⏰</span>
+        <span>Lun-Vin 9:00-18:00</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 2rem 0;">
+    <a href="/" class="btn">🏠 Înapoi la Portofoliu</a>
+    <a href="/pricing-calculator.html" class="btn btn-secondary">💰 Calculator Prețuri</a>
+  </div>
+
+  <div class="footer-text">
+    În caz de întrebări urgente, nu ezita să mă contactezi direct!
+  </div>
+</div>
+
+<!-- Google Ads Conversion Tracking -->
+<script>
+  // Google Ads conversion tracking
+  gtag('event', 'conversion', {
+    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+    'value': 1.0,
+    'currency': 'RON'
+  });
+  
+  // Facebook Pixel (dacă folosești)
+  // fbq('track', 'Purchase', {value: 1.00, currency: 'RON'});
+  
+  console.log('Thank you page loaded - conversion tracked');
+</script>
+
+</body>
+</html>
