@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator Prețuri - Anghelus Digital Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #06b6d4;
+      --accent: #10b981;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-900: #0f172a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--gray-900);
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CALCULATOR LAYOUT */
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* LEFT SIDE - SERVICES SELECTION */
+    .services-section {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--gray-200);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-card {
+      border: 2px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .service-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+    }
+
+    .service-card.active {
+      border-color: var(--primary);
+      background: linear-gradient(135deg, #f0f9ff 0%, var(--white) 100%);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.2);
+    }
+
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .service-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .service-details h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.25rem;
+    }
+
+    .service-details p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    .service-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .service-options {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gray-200);
+      display: none;
+    }
+
+    .service-card.active .service-options {
+      display: block;
+    }
+
+    .option-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .option-label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    /* RANGE SLIDER */
+    .range-container {
+      margin-bottom: 1rem;
+    }
+
+    .range-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--gray-200);
+      outline: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .range-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    }
+
+    .range-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    }
+
+    .range-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .range-value {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--gray-500);
+    }
+
+    /* CHECKBOXES */
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--gray-50);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .checkbox-item:hover {
+      background: var(--gray-100);
+    }
+
+    .checkbox-item.checked {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border: 1px solid var(--primary);
+    }
+
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gray-300);
+      border-radius: 4px;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .checkbox.checked {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .checkbox.checked::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .checkbox-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    .checkbox-price {
+      margin-left: auto;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* RIGHT SIDE - PRICE SUMMARY */
+    .price-summary {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--gray-200);
+      position: sticky;
+      top: 2rem;
+    }
+
+    .summary-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .summary-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .total-price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .price-currency {
+      font-size: 1.5rem;
+      color: var(--gray-600);
+    }
+
+    .price-breakdown {
+      margin-bottom: 2rem;
+    }
+
+    .breakdown-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .breakdown-item:last-child {
+      border-bottom: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .breakdown-label {
+      color: var(--gray-700);
+    }
+
+    .breakdown-price {
+      font-weight: 500;
+      color: var(--gray-900);
+    }
+
+    .timeline-info {
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .timeline-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .timeline-unit {
+      font-size: 1rem;
+      color: var(--gray-600);
+    }
+
+    /* GET QUOTE BUTTON */
+    .get-quote-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .get-quote-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+    }
+
+    .get-quote-btn:active {
+      transform: translateY(0);
+    }
+
+    .contact-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      line-height: 1.4;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .checkbox-group {
+        grid-template-columns: 1fr;
+      }
+      
+      .total-price {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* LOADING ANIMATION */
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    .loading {
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- HEADER -->
+  <div class="header">
+    <h1>💰 Calculator Prețuri Servicii</h1>
+    <p>Calculează instant costul proiectului tău digital. Prețuri transparente, fără surprize.</p>
+  </div>
+
+  <div class="calculator-grid">
+    
+    <!-- LEFT SIDE - SERVICES SELECTION -->
+    <div class="services-section">
+      <h2 class="section-title">
+        <span>🎯</span>
+        Selectează serviciile
+      </h2>
+
+      <!-- Website Development -->
+      <div class="service-card" data-service="website" data-base-price="1500">
+        <div class="service-header">
+          <div class="service-info">
+            <div class="service-icon">🌐</div>
+            <div class="service-details">
+              <h3>Website Profesional</h3>
+              <p>Site modern, responsive și optimizat SEO</p>
+            </div>
+          </div>
+          <div class="service-price">de la <span class="price-value">1.500</span> RON</div>
+        </div>
+        
+        <div class="service-options">
+          <div class="option-group">
+            <label class="option-label">Numărul de pagini</label>
+            <div class="range-container">
+              <input type="range" class="range-slider" id="pages-slider" min="1" max="20" value="5">
+              <div class="range-display">
+                <span class="range-value" id="pages-value">5 pagini</span>
+                <span class="range-labels">
+                  <span>1</span>
+                  <span>20</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <label class="option-label">Funcționalități extra</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item" data-feature="contact-form" data-price="300">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Formular contact</span>
+                <span class="checkbox-price">+300 RON</span>
+              </div>
+              <div class="checkbox-item" data-feature="gallery" data-price="400">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Galerie foto</span>
+                <span class="checkbox-price">+400 RON</span>
+              </div>
+              <div class="checkbox-item" data-feature="blog" data-price="600">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Blog integrat</span>
+                <span class="checkbox-price">+600 RON</span>
+              </div>
+              <div class="checkbox-item" data-feature="multilang" data-price="800">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Multi-limbă</span>
+                <span class="checkbox-price">+800 RON</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-commerce -->
+      <div class="service-card" data-service="ecommerce" data-base-price="3000">
+        <div class="service-header">
+          <div class="service-info">
+            <div class="service-icon">🛒</div>
+            <div class="service-details">
+              <h3>Magazin Online</h3>
+              <p>Platformă e-commerce completă cu plăți</p>
+            </div>
+          </div>
+          <div class="service-price">de la <span class="price-value">3.000</span> RON</div>
+        </div>
+
+        <div class="service-options">
+          <div class="option-group">
+            <label class="option-label">Numărul de produse</label>
+            <div class="range-container">
+              <input type="range" class="range-slider" id="products-slider" min="10" max="500" value="50">
+              <div class="range-display">
+                <span class="range-value" id="products-value">50 produse</span>
+                <span class="range-labels">
+                  <span>10</span>
+                  <span>500+</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <label class="option-label">Integrări avansate</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item" data-feature="payment-gateway" data-price="800">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Plăți online</span>
+                <span class="checkbox-price">+800 RON</span>
+              </div>
+              <div class="checkbox-item" data-feature="inventory" data-price="600">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Gestiune stoc</span>
+                <span class="checkbox-price">+600 RON</span>
+              </div>
+              <div class="checkbox-item" data-feature="analytics" data-price="400">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Analytics avansat</span>
+                <span class="checkbox-price">+400 RON</span>
+              </div>
+              <div class="checkbox-item" data-feature="mobile-app" data-price="2000">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Aplicație mobilă</span>
+                <span class="checkbox-price">+2000 RON</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chatbot & Automation -->
+      <div class="service-card" data-service="chatbot" data-base-price="2500">
+        <div class="service-header">
+          <div class="service-info">
+            <div class="service-icon">🤖</div>
+            <div class="service-details">
+              <h3>Chatbot & Automatizare</h3>
+              <p>Asistent virtual inteligent pentru business</p>
+            </div>
+          </div>
+          <div class="service-price">de la <span class="price-value">2.500</span> RON</div>
+        </div>
+
+        <div class="service-options">
+          <div class="option-group">
+            <label class="option-label">Complexitatea conversației</label>
+            <div class="range-container">
+              <input type="range" class="range-slider" id="complexity-slider" min="1" max="10" value="5">
+              <div class="range-display">
+                <span class="range-value" id="complexity-value">Nivel 5</span>
+                <span class="range-labels">
+                  <span>Simple</span>
+                  <span>Complex</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <label class="option-label">Funcționalități AI</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item" data-feature="nlp" data-price="1000">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Natural Language Processing</span>
+                <span class="checkbox-price">+1000 RON</span>
+              </div>
+              <div class="checkbox-item" data-feature="booking" data-price="800">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Sistem programări</span>
+                <span class="checkbox-price">+800 RON</span>
+              </div>
+              <div class="checkbox-item" data-feature="crm-integration" data-price="1200">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Integrare CRM</span>
+                <span class="checkbox-price">+1200 RON</span>
+              </div>
+              <div class="checkbox-item" data-feature="multilingual" data-price="600">
+                <div class="checkbox"></div>
+                <span class="checkbox-label">Support multi-limbă</span>
+                <span class="checkbox-price">+600 RON</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE - PRICE SUMMARY -->
+    <div class="price-summary">
+      <div class="summary-header">
+        <h3 class="summary-title">Estimare Proiect</h3>
+        <div class="total-price">
+          <span id="total-amount">0</span>
+          <span class="price-currency">RON</span>
+        </div>
+      </div>
+
+      <div class="price-breakdown" id="price-breakdown">
+        <div class="breakdown-item">
+          <span class="breakdown-label">Niciun serviciu selectat</span>
+          <span class="breakdown-price">0 RON</span>
+        </div>
+      </div>
+
+      <div class="timeline-info">
+        <div class="timeline-title">Timp de livrare estimat</div>
+        <div class="timeline-value">
+          <span id="timeline-weeks">0</span>
+          <span class="timeline-unit">săptămâni</span>
+        </div>
+      </div>
+
+      <button class="get-quote-btn" onclick="getQuote()">
+        📞 Solicită Ofertă Detaliată
+      </button>
+
+      <p class="contact-note">
+        Prețurile sunt orientative. Vei primi o ofertă personalizată în 24h.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Pricing Calculator Logic
+let selectedServices = {};
+let totalPrice = 0;
+let totalWeeks = 0;
+
+// Service base data
+const serviceData = {
+  website: {
+    basePrice: 1500,
+    baseWeeks: 2,
+    pricePerPage: 150,
+    features: {
+      'contact-form': { price: 300, weeks: 0.5 },
+      'gallery': { price: 400, weeks: 1 },
+      'blog': { price: 600, weeks: 1.5 },
+      'multilang': { price: 800, weeks: 2 }
+    }
+  },
+  ecommerce: {
+    basePrice: 3000,
+    baseWeeks: 4,
+    pricePerProduct: 20,
+    features: {
+      'payment-gateway': { price: 800, weeks: 1 },
+      'inventory': { price: 600, weeks: 1.5 },
+      'analytics': { price: 400, weeks: 1 },
+      'mobile-app': { price: 2000, weeks: 3 }
+    }
+  },
+  chatbot: {
+    basePrice: 2500,
+    baseWeeks: 3,
+    complexityMultiplier: 200,
+    features: {
+      'nlp': { price: 1000, weeks: 1.5 },
+      'booking': { price: 800, weeks: 1 },
+      'crm-integration': { price: 1200, weeks: 2 },
+      'multilingual': { price: 600, weeks: 1 }
+    }
+  }
+};
+
+// Initialize calculator
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('💰 Pricing Calculator initialized');
+  
+  // Service card selection
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const service = this.dataset.service;
+      
+      if (this.classList.contains('active')) {
+        // Deselect service
+        this.classList.remove('active');
+        delete selectedServices[service];
+      } else {
+        // Select service
+        this.classList.add('active');
+        selectedServices[service] = {
+          basePrice: parseInt(this.dataset.basePrice),
+          options: {},
+          sliders: {}
+        };
+      }
+      
+      updateCalculation();
+    });
+  });
+
+  // Range sliders
+  document.getElementById('pages-slider')?.addEventListener('input', function() {
+    const value = parseInt(this.value);
+    document.getElementById('pages-value').textContent = `${value} pagini`;
+    if (selectedServices.website) {
+      selectedServices.website.sliders.pages = value;
+      updateCalculation();
+    }
+  });
+
+  document.getElementById('products-slider')?.addEventListener('input', function() {
+    const value = parseInt(this.value);
+    document.getElementById('products-value').textContent = `${value} produse`;
+    if (selectedServices.ecommerce) {
+      selectedServices.ecommerce.sliders.products = value;
+      updateCalculation();
+    }
+  });
+
+  document.getElementById('complexity-slider')?.addEventListener('input', function() {
+    const value = parseInt(this.value);
+    document.getElementById('complexity-value').textContent = `Nivel ${value}`;
+    if (selectedServices.chatbot) {
+      selectedServices.chatbot.sliders.complexity = value;
+      updateCalculation();
+    }
+  });
+
+  // Feature checkboxes
+  document.querySelectorAll('.checkbox-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const feature = this.dataset.feature;
+      const price = parseInt(this.dataset.price);
+      const checkbox = this.querySelector('.checkbox');
+      const serviceCard = this.closest('.service-card');
+      const service = serviceCard.dataset.service;
+      
+      if (!selectedServices[service]) return;
+      
+      if (checkbox.classList.contains('checked')) {
+        // Uncheck
+        checkbox.classList.remove('checked');
+        this.classList.remove('checked');
+        delete selectedServices[service].options[feature];
+      } else {
+        // Check
+        checkbox.classList.add('checked');
+        this.classList.add('checked');
+        selectedServices[service].options[feature] = price;
+      }
+      
+      updateCalculation();
+    });
+  });
+});
+
+function updateCalculation() {
+  totalPrice = 0;
+  totalWeeks = 0;
+  
+  const breakdown = document.getElementById('price-breakdown');
+  breakdown.innerHTML = '';
+  
+  if (Object.keys(selectedServices).length === 0) {
+    breakdown.innerHTML = '<div class="breakdown-item"><span class="breakdown-label">Niciun serviciu selectat</span><span class="breakdown-price">0 RON</span></div>';
+    document.getElementById('total-amount').textContent = '0';
+    document.getElementById('timeline-weeks').textContent = '0';
+    return;
+  }
+  
+  Object.entries(selectedServices).forEach(([serviceKey, serviceValue]) => {
+    const data = serviceData[serviceKey];
+    let servicePrice = data.basePrice;
+    let serviceWeeks = data.baseWeeks;
+    
+    // Add base service
+    addBreakdownItem(getServiceName(serviceKey), `${data.basePrice} RON`);
+    
+    // Calculate sliders impact
+    if (serviceKey === 'website' && serviceValue.sliders.pages) {
+      const extraPages = Math.max(0, serviceValue.sliders.pages - 5);
+      const extraCost = extraPages * data.pricePerPage;
+      if (extraCost > 0) {
+        servicePrice += extraCost;
+        addBreakdownItem(`${extraPages} pagini extra`, `+${extraCost} RON`);
+      }
+    }
+    
+    if (serviceKey === 'ecommerce' && serviceValue.sliders.products) {
+      const extraProducts = Math.max(0, serviceValue.sliders.products - 50);
+      const extraCost = extraProducts * data.pricePerProduct;
+      if (extraCost > 0) {
+        servicePrice += extraCost;
+        addBreakdownItem(`${extraProducts} produse extra`, `+${extraCost} RON`);
+      }
+    }
+    
+    if (serviceKey === 'chatbot' && serviceValue.sliders.complexity) {
+      const complexityExtra = (serviceValue.sliders.complexity - 1) * data.complexityMultiplier;
+      if (complexityExtra > 0) {
+        servicePrice += complexityExtra;
+        addBreakdownItem('Complexitate extra', `+${complexityExtra} RON`);
+      }
+    }
+    
+    // Add selected features
+    Object.entries(serviceValue.options).forEach(([feature, price]) => {
+      servicePrice += price;
+      if (data.features[feature]) {
+        serviceWeeks += data.features[feature].weeks;
+      }
+      addBreakdownItem(getFeatureName(feature), `+${price} RON`);
+    });
+    
+    totalPrice += servicePrice;
+    totalWeeks += serviceWeeks;
+  });
+  
+  // Add total
+  addBreakdownItem('TOTAL', `${totalPrice} RON`, true);
+  
+  // Update display
+  document.getElementById('total-amount').textContent = totalPrice.toLocaleString();
+  document.getElementById('timeline-weeks').textContent = Math.ceil(totalWeeks);
+}
+
+function addBreakdownItem(label, price, isTotal = false) {
+  const breakdown = document.getElementById('price-breakdown');
+  const item = document.createElement('div');
+  item.className = 'breakdown-item';
+  if (isTotal) item.style.fontWeight = '700';
+  
+  item.innerHTML = `
+    <span class="breakdown-label">${label}</span>
+    <span class="breakdown-price">${price}</span>
+  `;
+  
+  breakdown.appendChild(item);
+}
+
+function getServiceName(service) {
+  const names = {
+    website: 'Website Profesional',
+    ecommerce: 'Magazin Online',
+    chatbot: 'Chatbot & Automatizare'
+  };
+  return names[service] || service;
+}
+
+function getFeatureName(feature) {
+  const names = {
+    'contact-form': 'Formular contact',
+    'gallery': 'Galerie foto',
+    'blog': 'Blog integrat',
+    'multilang': 'Multi-limbă',
+    'payment-gateway': 'Plăți online',
+    'inventory': 'Gestiune stoc',
+    'analytics': 'Analytics avansat',
+    'mobile-app': 'Aplicație mobilă',
+    'nlp': 'Natural Language Processing',
+    'booking': 'Sistem programări',
+    'crm-integration': 'Integrare CRM',
+    'multilingual': 'Support multi-limbă'
+  };
+  return names[feature] || feature;
+}
+
+function getQuote() {
+  if (totalPrice === 0) {
+    alert('Selectează măcar un serviciu pentru a solicita o ofertă!');
+    return;
+  }
+  
+  // Prepare quote data
+  const quoteData = {
+    services: Object.keys(selectedServices),
+    totalPrice: totalPrice,
+    estimatedWeeks: Math.ceil(totalWeeks),
+    breakdown: selectedServices
+  };
+  
+  // Simulate lead capture
+  const name = prompt('Cum te cheamă?');
+  if (!name) return;
+  
+  const email = prompt('Adresa ta de email:');
+  if (!email) return;
+  
+  const phone = prompt('Numărul tău de telefon (opțional):') || 'Nu a furnizat';
+  
+  // Simulate sending quote
+  const quoteBtn = document.querySelector('.get-quote-btn');
+  const originalText = quoteBtn.textContent;
+  
+  quoteBtn.textContent = '📧 Se trimite oferta...';
+  quoteBtn.disabled = true;
+  
+  setTimeout(() => {
+    quoteBtn.textContent = '✅ Oferta trimisă!';
+    quoteBtn.style.background = 'var(--success)';
+    
+    alert(`✅ Mulțumesc, ${name}!\n\nOferta personalizată a fost trimisă la ${email}\n\nValoare estimată: ${totalPrice} RON\nTimp livrare: ${Math.ceil(totalWeeks)} săptămâni\n\nTe voi contacta în 24 ore!`);
+    
+    // Reset form
+    setTimeout(() => {
+      quoteBtn.textContent = originalText;
+      quoteBtn.style.background = '';
+      quoteBtn.disabled = false;
+      
+      // Reset calculator
+      selectedServices = {};
+      document.querySelectorAll('.service-card.active').forEach(card => {
+        card.classList.remove('active');
+      });
+      document.querySelectorAll('.checkbox.checked').forEach(checkbox => {
+        checkbox.classList.remove('checked');
+        checkbox.parentElement.classList.remove('checked');
+      });
+      updateCalculation();
+    }, 3000);
+  }, 2000);
+  
+  console.log('Quote requested:', { name, email, phone, ...quoteData });
+}
+
+console.log('🎉 Pricing Calculator ready!');
+</script>
+
+</body>
+</html>
