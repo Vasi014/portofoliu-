@@ -636,10 +636,109 @@
         display: none;
       }
     }
+
+    /* DESPRE */
+    .despre {
+      padding: 6rem 1rem;
+      background: var(--gray-50);
+    }
+    .despre h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--gray-900);
+    }
+    .despre-subtitle {
+      text-align: center;
+      color: var(--gray-600);
+      font-size: 1.1rem;
+      margin-bottom: 3.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .despre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    .despre-visual {
+      background: linear-gradient(135deg, var(--dental-light), #dbeafe);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 1px solid var(--gray-200);
+    }
+    .despre-visual .big-icon { font-size: 5rem; display: block; margin-bottom: 1rem; }
+    .despre-visual h3 { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+    .despre-visual p { color: var(--gray-600); font-size: 0.95rem; }
+    .despre-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .despre-stat {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .despre-stat .num { font-size: 1.8rem; font-weight: 700; color: var(--primary); display: block; }
+    .despre-stat .lbl { font-size: 0.8rem; color: var(--gray-600); margin-top: 0.2rem; }
+    .despre-text h3 { font-size: 1.6rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem; }
+    .despre-text p { color: var(--gray-600); line-height: 1.75; margin-bottom: 1rem; }
+    .despre-values { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .despre-values li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: var(--gray-600);
+      font-size: 0.95rem;
+    }
+    .despre-values li span.icon-val { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .team-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid var(--gray-200);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .team-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+    .team-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1rem;
+    }
+    .team-card h4 { font-size: 1rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.3rem; }
+    .team-card p { font-size: 0.85rem; color: var(--gray-600); }
+    @media (max-width: 768px) {
+      .despre-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .despre-stats { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
-
 <!-- Header -->
 <header class="header">
   <div class="container">
@@ -708,6 +807,76 @@
         <div class="price">800-1500 RON</div>
       </div>
       
+    </div>
+  </div>
+</section>
+
+
+<!-- Despre -->
+<section id="despre" class="despre">
+  <div>
+    <h2>Despre DentalCare Pro</h2>
+    <p class="despre-subtitle">O clinică modernă construită pe fundația a 15 ani de experiență, tehnologie avansată și grija autentică față de pacienți.</p>
+    
+    <div class="despre-grid">
+      <div class="despre-visual">
+        <span class="big-icon">🏥</span>
+        <h3>Clinică Modernă</h3>
+        <p>Echipamente de ultimă generație pentru diagnostic și tratament precis</p>
+        <div class="despre-stats">
+          <div class="despre-stat">
+            <span class="num">15+</span>
+            <span class="lbl">Ani experiență</span>
+          </div>
+          <div class="despre-stat">
+            <span class="num">5000+</span>
+            <span class="lbl">Pacienți tratați</span>
+          </div>
+          <div class="despre-stat">
+            <span class="num">8</span>
+            <span class="lbl">Specialiști</span>
+          </div>
+          <div class="despre-stat">
+            <span class="num">98%</span>
+            <span class="lbl">Satisfacție</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="despre-text">
+        <h3>Zâmbetul tău, prioritatea noastră</h3>
+        <p>DentalCare Pro este o clinică dentară de referință din Constanța, înființată cu misiunea de a oferi tratamente dentare de cea mai înaltă calitate într-un mediu relaxant și primitor.</p>
+        <p>Fiecare pacient este unic, de aceea planurile noastre de tratament sunt personalizate pentru nevoile și bugetul fiecăruia. Nu există soluții universale — există soluția ta.</p>
+        <ul class="despre-values">
+          <li><span class="icon-val">🔬</span><div><strong>Tehnologie avansată</strong> — Radiografii digitale, scaner 3D, tratamente laser pentru rezultate precise și rapide</div></li>
+          <li><span class="icon-val">🛡️</span><div><strong>Sterilizare certificată</strong> — Protocoale stricte de igienă și sterilizare conform standardelor europene</div></li>
+          <li><span class="icon-val">💊</span><div><strong>Anestezie modernă</strong> — Tratamente complet nedureroase cu tehnici anestezice de ultimă generație</div></li>
+          <li><span class="icon-val">📋</span><div><strong>Garanție pentru lucrări</strong> — Toate restaurările dentare vin cu garanție 2-5 ani</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">👨‍⚕️</div>
+        <h4>Dr. Andrei Popescu</h4>
+        <p>Medic primar stomatolog — 15 ani experiență</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">👩‍⚕️</div>
+        <h4>Dr. Maria Ionescu</h4>
+        <p>Specialist ortodonție — 10 ani experiență</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">👨‍⚕️</div>
+        <h4>Dr. Radu Constantin</h4>
+        <p>Chirurgie orală și implantologie</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">👩‍⚕️</div>
+        <h4>Dr. Elena Mihai</h4>
+        <p>Stomatologie estetică și albire</p>
+      </div>
     </div>
   </div>
 </section>
@@ -796,9 +965,9 @@
       <div class="appointment-form">
         <h3>Programează Rapid</h3>
         <form id="appointmentForm">
-          <input type="text" placeholder="Numele complet" required>
-          <input type="tel" placeholder="Telefon" required>
-          <input type="email" placeholder="Email" required>
+          <input type="text" name="name" placeholder="Numele complet" required>
+          <input type="tel" name="tel" placeholder="Telefon" required>
+          <input type="email" name="email" placeholder="Email" required>
           <select required>
             <option value="">Selectează serviciul</option>
             <option value="consultatie">Consultație Generală (150 RON)</option>
@@ -807,7 +976,7 @@
             <option value="coroana">Coroane & Proteze (800-1500 RON)</option>
             <option value="urgenta">Urgență Dentară</option>
           </select>
-          <textarea placeholder="Descrie problema sau preferințele pentru programare..."></textarea>
+          <textarea name="mesaj" placeholder="Descrie problema sau preferințele pentru programare..."></textarea>
           <button type="submit" class="btn primary">Trimite Cererea</button>
         </form>
       </div>
