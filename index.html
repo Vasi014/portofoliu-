@@ -14,7 +14,7 @@
 <meta name="geo.region" content="RO-CT">
 <meta name="geo.placename" content="Constanța">
 
-<!-- Open Graph pentru social media -->
+<!-- Open Graph -->
 <meta property="og:title" content="Vasile Anghelus - Digital Solutions | Web Developer Constanța">
 <meta property="og:description" content="Creare site-uri profesionale, magazine online și automatizări pentru afaceri din Constanța și România.">
 <meta property="og:url" content="https://vasi014.github.io/portofoliu-/">
@@ -26,7 +26,7 @@
 <meta name="twitter:title" content="Vasile Anghelus - Digital Solutions | Web Developer Constanța">
 <meta name="twitter:description" content="Creare site-uri profesionale, magazine online și automatizări pentru afaceri din Constanța și România.">
 
-<!-- Structured Data pentru Google -->
+<!-- Structured Data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,18 +40,11 @@
   },
   "url": "https://vasi014.github.io/portofoliu-/",
   "email": "vasy_anghelus01@yahoo.com",
-  "knowsAbout": [
-    "Web Development",
-    "E-commerce",
-    "Chatbot Development", 
-    "SEO Optimization",
-    "Digital Solutions"
-  ],
-  "sameAs": [
-    "https://github.com/Vasi014"
-  ]
+  "knowsAbout": ["Web Development","E-commerce","Chatbot Development","SEO Optimization","Digital Solutions"],
+  "sameAs": ["https://github.com/Vasi014"]
 }
 </script>
+
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -68,9 +61,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--navy);
     color: var(--white);
@@ -79,7 +70,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NOISE TEXTURE OVERLAY ── */
+  /* Noise texture */
   body::before {
     content: '';
     position: fixed;
@@ -99,7 +90,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.25rem 4rem;
-    background: rgba(10,15,30,0.7);
+    background: rgba(10,15,30,0.85);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
@@ -112,15 +103,14 @@
     color: var(--white);
     text-decoration: none;
   }
-
   .nav-logo span { color: var(--accent); }
 
   .nav-links {
     display: flex;
     gap: 2.5rem;
     list-style: none;
+    align-items: center;
   }
-
   .nav-links a {
     color: var(--gray);
     text-decoration: none;
@@ -129,18 +119,38 @@
     letter-spacing: 0.04em;
     transition: color 0.2s;
   }
-
   .nav-links a:hover { color: var(--accent); }
-
   .nav-cta {
     background: var(--blue);
     color: var(--white) !important;
     padding: 0.5rem 1.25rem;
     border-radius: 6px;
-    transition: background 0.2s, color 0.2s !important;
+    transition: background 0.2s !important;
   }
+  .nav-cta:hover { background: var(--blue-bright) !important; }
 
-  .nav-cta:hover { background: var(--blue-bright) !important; color: #fff !important; }
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+    z-index: 101;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* ── HERO ── */
   .hero {
@@ -148,11 +158,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 4rem;
+    padding: 7rem 4rem 4rem;
     position: relative;
     overflow: hidden;
   }
-
   .hero-glow {
     position: absolute;
     width: 700px; height: 700px;
@@ -162,7 +171,6 @@
     pointer-events: none;
     animation: pulse 6s ease-in-out infinite;
   }
-
   .hero-glow2 {
     position: absolute;
     width: 400px; height: 400px;
@@ -172,12 +180,10 @@
     pointer-events: none;
     animation: pulse 8s ease-in-out 2s infinite;
   }
-
   @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.08); opacity: 0.7; }
   }
-
   .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -195,7 +201,6 @@
     width: fit-content;
     animation: fadeUp 0.8s ease both;
   }
-
   .hero-badge::before {
     content: '';
     width: 6px; height: 6px;
@@ -203,24 +208,17 @@
     background: var(--accent);
     animation: blink 2s infinite;
   }
-
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
-
   .hero h1 {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-size: clamp(2.4rem, 6vw, 5rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
     max-width: 780px;
     animation: fadeUp 0.8s 0.1s ease both;
   }
-
-  .hero h1 em {
-    font-style: normal;
-    color: var(--accent);
-  }
-
+  .hero h1 em { font-style: normal; color: var(--accent); }
   .hero-sub {
     margin-top: 1.5rem;
     font-size: 1.1rem;
@@ -229,14 +227,13 @@
     line-height: 1.7;
     animation: fadeUp 0.8s 0.2s ease both;
   }
-
   .hero-actions {
     display: flex;
     gap: 1rem;
     margin-top: 2.5rem;
+    flex-wrap: wrap;
     animation: fadeUp 0.8s 0.3s ease both;
   }
-
   .btn-primary {
     background: var(--blue);
     color: #fff;
@@ -246,15 +243,12 @@
     font-weight: 500;
     font-size: 0.95rem;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0 0 0 rgba(59,130,246,0);
   }
-
   .btn-primary:hover {
     background: var(--blue-bright);
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(59,130,246,0.35);
   }
-
   .btn-outline {
     border: 1px solid var(--border);
     color: var(--gray);
@@ -265,9 +259,7 @@
     font-size: 0.95rem;
     transition: border-color 0.2s, color 0.2s;
   }
-
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -280,18 +272,16 @@
     margin-top: 4rem;
     padding-top: 2.5rem;
     border-top: 1px solid var(--border);
+    flex-wrap: wrap;
     animation: fadeUp 0.8s 0.4s ease both;
   }
-
   .stat-num {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     font-size: 2rem;
     color: var(--white);
   }
-
   .stat-num span { color: var(--accent); }
-
   .stat-label {
     font-size: 0.82rem;
     color: var(--gray);
@@ -304,7 +294,6 @@
     padding: 6rem 4rem;
     position: relative;
   }
-
   .section-label {
     font-size: 0.75rem;
     font-weight: 500;
@@ -313,7 +302,6 @@
     color: var(--accent);
     margin-bottom: 0.75rem;
   }
-
   .section-title {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
@@ -322,7 +310,6 @@
     line-height: 1.1;
     max-width: 600px;
   }
-
   .section-desc {
     color: var(--gray);
     font-size: 1rem;
@@ -333,14 +320,12 @@
 
   /* ── SERVICES ── */
   #servicii { background: var(--navy-mid); }
-
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-top: 3.5rem;
   }
-
   .service-card {
     background: var(--navy);
     border: 1px solid var(--border);
@@ -350,7 +335,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .service-card::after {
     content: '';
     position: absolute;
@@ -360,15 +344,12 @@
     transition: opacity 0.3s;
     border-radius: 14px;
   }
-
   .service-card:hover {
     border-color: var(--blue-bright);
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(29,78,216,0.2);
   }
-
   .service-card:hover::after { opacity: 1; }
-
   .service-icon {
     width: 48px; height: 48px;
     border-radius: 10px;
@@ -380,83 +361,59 @@
     font-size: 1.4rem;
     margin-bottom: 1.25rem;
   }
-
   .service-card h3 {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
     font-size: 1.05rem;
     margin-bottom: 0.6rem;
   }
-
-  .service-card p {
-    color: var(--gray);
-    font-size: 0.9rem;
-    line-height: 1.65;
-  }
+  .service-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.65; }
 
   /* ── PORTOFOLIU ── */
   #portofoliu { background: var(--navy); }
-
   .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     margin-top: 3.5rem;
   }
-
   .project-card {
     border-radius: 16px;
     border: 1px solid var(--border);
     overflow: hidden;
     background: var(--navy-mid);
     transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-    position: relative;
   }
-
   .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     border-color: var(--blue-bright);
   }
-
   .project-thumb {
     height: 200px;
-    background: linear-gradient(135deg, var(--navy-light), var(--blue) 80%);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3.5rem;
     position: relative;
     overflow: hidden;
   }
-
   .project-thumb::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%);
   }
-
   .project-thumb-placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.7);
     font-size: 0.85rem;
   }
-
   .project-thumb-placeholder span { font-size: 2.5rem; }
-
   .project-body { padding: 1.5rem; }
-
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
   .tag {
     background: rgba(59,130,246,0.12);
     border: 1px solid rgba(59,130,246,0.2);
@@ -467,21 +424,13 @@
     padding: 0.2rem 0.65rem;
     border-radius: 100px;
   }
-
   .project-body h3 {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
   }
-
-  .project-body p {
-    color: var(--gray);
-    font-size: 0.88rem;
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
-  }
-
+  .project-body p { color: var(--gray); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.25rem; }
   .project-link {
     display: inline-flex;
     align-items: center;
@@ -492,41 +441,10 @@
     font-weight: 500;
     transition: gap 0.2s, color 0.2s;
   }
-
   .project-link:hover { gap: 0.7rem; color: var(--accent); }
-
-  /* Add project card */
-  .project-add {
-    border: 2px dashed rgba(59,130,246,0.25);
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    min-height: 340px;
-    color: var(--gray);
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
-    background: transparent;
-  }
-
-  .project-add:hover { border-color: var(--accent); color: var(--accent); }
-
-  .project-add-icon {
-    width: 52px; height: 52px;
-    border-radius: 50%;
-    border: 2px dashed currentColor;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-  }
 
   /* ── PROCESS ── */
   #proces { background: var(--navy-mid); }
-
   .process-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -534,7 +452,6 @@
     margin-top: 3.5rem;
     position: relative;
   }
-
   .process-steps::before {
     content: '';
     position: absolute;
@@ -544,13 +461,7 @@
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
   }
-
-  .step {
-    text-align: center;
-    padding: 0 1.5rem;
-    position: relative;
-  }
-
+  .step { text-align: center; padding: 0 1.5rem; position: relative; }
   .step-num {
     width: 56px; height: 56px;
     border-radius: 50%;
@@ -567,23 +478,11 @@
     position: relative;
     z-index: 1;
   }
-
-  .step h4 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .step p {
-    color: var(--gray);
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
+  .step h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .step p { color: var(--gray); font-size: 0.85rem; line-height: 1.6; }
 
   /* ── CONTACT ── */
   #contact { background: var(--navy); }
-
   .contact-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -591,7 +490,6 @@
     margin-top: 3.5rem;
     align-items: start;
   }
-
   .contact-info p {
     color: var(--gray);
     font-size: 1rem;
@@ -599,7 +497,6 @@
     margin-top: 1rem;
     margin-bottom: 2.5rem;
   }
-
   .contact-detail {
     display: flex;
     align-items: center;
@@ -608,7 +505,6 @@
     font-size: 0.9rem;
     margin-bottom: 1rem;
   }
-
   .contact-detail-icon {
     width: 36px; height: 36px;
     border-radius: 8px;
@@ -620,24 +516,15 @@
     font-size: 1rem;
     flex-shrink: 0;
   }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-
   label {
     font-size: 0.82rem;
     font-weight: 500;
     color: var(--gray);
     letter-spacing: 0.04em;
   }
-
   input, textarea, select {
     background: var(--navy-mid);
     border: 1px solid var(--border);
@@ -651,13 +538,9 @@
     transition: border-color 0.2s;
     width: 100%;
   }
-
   input:focus, textarea:focus, select:focus { border-color: var(--blue-bright); }
-
   textarea { resize: vertical; min-height: 120px; }
-
   select option { background: var(--navy-mid); }
-
   .form-submit {
     background: var(--blue);
     color: #fff;
@@ -672,11 +555,15 @@
     width: 100%;
     margin-top: 0.5rem;
   }
-
   .form-submit:hover {
     background: var(--blue-bright);
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+  }
+  .form-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
   }
 
   /* ── FOOTER ── */
@@ -689,27 +576,55 @@
     color: var(--gray);
     font-size: 0.82rem;
   }
-
   .footer-logo {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     font-size: 1.1rem;
     color: var(--white);
   }
-
   .footer-logo span { color: var(--accent); }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    nav { padding: 1rem 2rem; }
-    .nav-links { display: none; }
-    section { padding: 4rem 2rem; }
-    .hero { padding: 0 2rem; }
+    nav { padding: 1rem 1.5rem; }
+
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(10,15,30,0.97);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1.2rem; }
+    .nav-hamburger { display: flex; }
+
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+    .hero-sub { font-size: 1rem; }
+    .hero-glow, .hero-glow2 { display: none; }
+
+    .services-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+
     .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
     .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; }
+
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.5rem; }
     .process-steps::before { display: none; }
-    .stats { flex-wrap: wrap; gap: 1.5rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .stats { gap: 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-outline { text-align: center; }
+    .process-steps { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -718,12 +633,17 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Anghelus<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#servicii">Servicii</a></li>
-    <li><a href="#portofoliu">Portofoliu</a></li>
-    <li><a href="#proces">Proces</a></li>
-    <li><a href="#contact" class="nav-cta">Contactează-mă</a></li>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#servicii" onclick="closeMenu()">Servicii</a></li>
+    <li><a href="#portofoliu" onclick="closeMenu()">Portofoliu</a></li>
+    <li><a href="#proces" onclick="closeMenu()">Proces</a></li>
+    <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Contactează-mă</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Meniu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -767,43 +687,36 @@
   <p class="section-desc">De la primul pixel până la automatizare completă — îți construiesc prezența online care lucrează pentru tine.</p>
 
   <div class="services-grid">
-
     <div class="service-card">
       <div class="service-icon">🌐</div>
       <h3>Site-uri web pentru firme</h3>
       <p>Site-uri moderne, rapide și optimizate, gândite să transforme vizitatorii în clienți. Design personalizat, responsive pe orice dispozitiv.</p>
     </div>
-
     <div class="service-card">
       <div class="service-icon">🤖</div>
       <h3>Automatizări & Chatboți</h3>
       <p>Chatbots inteligenți pentru business cu natural language processing, programări automate, triaj clienți și customer service 24/7. Demonstrație live: DentalCare Assistant.</p>
     </div>
-
     <div class="service-card">
       <div class="service-icon">🛒</div>
       <h3>Magazine online (E-commerce)</h3>
-      <p>Platforme de vânzare online complete cu plăți integrate, Click & Collect, gestionare produse și experiență premium. Specializat în sectorul HoReCa (restaurante, cafenele, cofetării).</p>
+      <p>Platforme de vânzare online complete cu plăți integrate, Click & Collect, gestionare produse și experiență premium. Specializat în sectorul HoReCa.</p>
     </div>
-
     <div class="service-card">
       <div class="service-icon">📈</div>
       <h3>SEO Tehnic & Optimizare</h3>
       <p>Optimizare tehnică inclusă în fiecare site: structură corectă pentru Google, viteza de încărcare, meta tags complete și responsive design pentru vizibilitate organică.</p>
     </div>
-
     <div class="service-card">
       <div class="service-icon">🎨</div>
       <h3>Design UI/UX</h3>
       <p>Interfețe intuitive și atractive care fac utilizatorii să rămână pe site. Prototipuri, wireframes și design final gata de implementare.</p>
     </div>
-
     <div class="service-card">
       <div class="service-icon">⚙️</div>
       <h3>Integrări & API-uri</h3>
       <p>Conectez aplicațiile pe care le folosești deja — CRM, facturare, email marketing — într-un ecosistem digital care funcționează automat.</p>
     </div>
-
   </div>
 </section>
 
@@ -815,12 +728,11 @@
 
   <div class="portfolio-grid">
 
-    <!-- Proiect 1 - site-ul tau existent -->
     <div class="project-card">
       <div class="project-thumb" style="background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);">
         <div class="project-thumb-placeholder">
           <span>🌐</span>
-          <div style="font-size:0.8rem; letter-spacing:0.05em; opacity:0.7;">PREVIEW SITE</div>
+          <div style="font-size:0.8rem; letter-spacing:0.05em;">PREVIEW SITE</div>
         </div>
       </div>
       <div class="project-body">
@@ -831,16 +743,15 @@
         </div>
         <h3>Restaurant Port Constanța</h3>
         <p>Site de prezentare pentru restaurant din portul Constanței — meniu interactiv, galerie foto și sistem de rezervări. Design modern adaptat pentru industria HoReCA.</p>
-        <a href="https://muse-port-constanta.preview.emergentagent.com/" target="_blank" class="project-link">Vezi proiectul →</a>
+        <a href="https://muse-port-constanta.preview.emergentagent.com/" target="_blank" rel="noopener" class="project-link">Vezi proiectul →</a>
       </div>
     </div>
 
-    <!-- Proiect 2 - Lumiere Beauty Studio -->
     <div class="project-card">
       <div class="project-thumb" style="background: linear-gradient(135deg, #FAF7F4 0%, #E8B4A0 100%);">
-        <div class="project-thumb-placeholder">
+        <div class="project-thumb-placeholder" style="color: #5a3d2b;">
           <span>💄</span>
-          <div style="font-size:0.8rem; letter-spacing:0.05em; opacity:0.7;">BEAUTY SALON</div>
+          <div style="font-size:0.8rem; letter-spacing:0.05em;">BEAUTY SALON</div>
         </div>
       </div>
       <div class="project-body">
@@ -855,12 +766,11 @@
       </div>
     </div>
 
-    <!-- Proiect 3 - SEO Analyzer Pro -->
     <div class="project-card">
       <div class="project-thumb" style="background: linear-gradient(135deg, #22c55e 0%, #3b82f6 100%);">
         <div class="project-thumb-placeholder">
           <span>📊</span>
-          <div style="font-size:0.8rem; letter-spacing:0.05em; opacity:0.7;">SEO TOOL</div>
+          <div style="font-size:0.8rem; letter-spacing:0.05em;">SEO TOOL</div>
         </div>
       </div>
       <div class="project-body">
@@ -870,17 +780,16 @@
           <span class="tag">UI/UX</span>
         </div>
         <h3>SEO Analyzer Pro</h3>
-        <p>Aplicație web demonstrativă pentru analiza tehnică SEO. Simulează auditarea site-urilor și prezintă concepte de optimizare tehnică implementate în fiecare proiect web (meta tags, performance, structure).</p>
+        <p>Aplicație web demonstrativă pentru analiza tehnică SEO. Simulează auditarea site-urilor și prezintă concepte de optimizare tehnică implementate în fiecare proiect web.</p>
         <a href="seo-analyzer-pro.html" target="_blank" class="project-link">Vezi proiectul →</a>
       </div>
     </div>
 
-    <!-- Proiect 4 - DentalCare Assistant -->
     <div class="project-card">
       <div class="project-thumb" style="background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);">
         <div class="project-thumb-placeholder">
           <span>🦷</span>
-          <div style="font-size:0.8rem; letter-spacing:0.05em; opacity:0.7;">CHATBOT</div>
+          <div style="font-size:0.8rem; letter-spacing:0.05em;">CHATBOT</div>
         </div>
       </div>
       <div class="project-body">
@@ -895,12 +804,11 @@
       </div>
     </div>
 
-    <!-- Proiect 5 - Artizanat Dulce Tomis -->
     <div class="project-card">
       <div class="project-thumb" style="background: linear-gradient(135deg, #d4a574 0%, #e8b4a0 100%);">
-        <div class="project-thumb-placeholder">
+        <div class="project-thumb-placeholder" style="color: #5a3d2b;">
           <span>🍰</span>
-          <div style="font-size:0.8rem; letter-spacing:0.05em; opacity:0.7; color: white;">PREMIUM</div>
+          <div style="font-size:0.8rem; letter-spacing:0.05em;">PREMIUM HoReCa</div>
         </div>
       </div>
       <div class="project-body">
@@ -911,7 +819,7 @@
           <span class="tag">Payment</span>
         </div>
         <h3>Artizanat Dulce Tomis</h3>
-        <p>Cofetărie premium cu e-commerce complet, plăți online integrate, chatbot AI pentru comenzi și sistem Click & Collect. Automatizare completă pentru HoReCa luxury din Tomis Plus, Constanța.</p>
+        <p>Cofetărie premium cu e-commerce complet, plăți online integrate, chatbot AI pentru comenzi și sistem Click & Collect. Automatizare completă pentru HoReCa luxury.</p>
         <a href="artizanat-dulce-tomis.html" target="_blank" class="project-link">Vezi proiectul →</a>
       </div>
     </div>
@@ -957,7 +865,6 @@
   <div class="contact-wrap">
     <div class="contact-info">
       <p>Transformă ideea în realitate digitală. Consultația inițială este gratuită și îți ofer o strategie clară pentru proiectul tău.</p>
-
       <div class="contact-detail">
         <div class="contact-detail-icon">💼</div>
         <div><strong>Consultanță gratuită</strong><br>Analiză completă a nevoilor tale de business</div>
@@ -972,82 +879,47 @@
       </div>
     </div>
 
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" onsubmit="handleSubmit(event)" novalidate>
       <div class="form-row">
         <div class="form-group">
-          <label>Numele tău *</label>
-          <input type="text" placeholder="Ion Popescu" required>
+          <label for="contact-name">Numele tău *</label>
+          <input type="text" id="contact-name" name="name" placeholder="Ion Popescu" required>
         </div>
         <div class="form-group">
-          <label>Email *</label>
-          <input type="email" placeholder="ion@firma.ro" required>
+          <label for="contact-email">Email *</label>
+          <input type="email" id="contact-email" name="email" placeholder="ion@firma.ro" required>
         </div>
       </div>
       <div class="form-group">
-        <label>Firma / Proiectul tău</label>
-        <input type="text" placeholder="Restaurant Bouquet, Clinica Dentară Pro">
+        <label for="contact-firma">Firma / Proiectul tău</label>
+        <input type="text" id="contact-firma" name="firma" placeholder="Restaurant Bouquet, Clinica Dentară Pro">
       </div>
       <div class="form-group">
-        <label>Ce tip de soluție cauți?</label>
-        <select>
-          <option>Selectează serviciul</option>
-          <option>Site web profesional (1.500+ RON)</option>
-          <option>Magazin online / E-commerce (3.000+ RON)</option>
-          <option>Chatbot & Automatizări (2.500+ RON)</option>
-          <option>SEO & Optimizare (500+ RON/lună)</option>
-          <option>Pachet complet (consultanță gratuită)</option>
+        <label for="contact-serviciu">Ce tip de soluție cauți?</label>
+        <select id="contact-serviciu" name="serviciu">
+          <option value="">Selectează serviciul</option>
+          <option value="site-web">Site web profesional (1.500+ RON)</option>
+          <option value="ecommerce">Magazin online / E-commerce (3.000+ RON)</option>
+          <option value="chatbot">Chatbot & Automatizări (2.500+ RON)</option>
+          <option value="seo">SEO & Optimizare (500+ RON/lună)</option>
+          <option value="pachet-complet">Pachet complet (consultanță gratuită)</option>
         </select>
       </div>
       <div class="form-group">
-        <label>Descrie-mi proiectul</label>
-        <textarea rows="4" placeholder="Ex: Am o clinică dentară și vreau un site modern cu sistem de programări online. Targetez pacienți din Constanța și împrejurimi..."></textarea>
-      </div>
-      
-      <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(59,130,246,0.1); border-radius: 8px; border-left: 3px solid var(--blue);">
-        <h4 style="color: var(--blue); margin-bottom: 0.5rem;">💰 Calculator rapid prețuri</h4>
-        <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 0.5rem;">Vrei să știi costul aproximativ înainte să trimiți mesajul?</p>
-        <a href="pricing-calculator.html" target="_blank" style="color: var(--blue); font-weight: 500; text-decoration: none;">→ Calculează prețul instant</a>
+        <label for="contact-mesaj">Descrie-mi proiectul</label>
+        <textarea id="contact-mesaj" name="mesaj" rows="4" placeholder="Ex: Am o clinică dentară și vreau un site modern cu sistem de programări online. Targetez pacienți din Constanța și împrejurimi..."></textarea>
       </div>
 
-      <button type="submit" class="form-submit">Solicită consultație gratuită</button>
-      
-      <p style="font-size: 0.8rem; color: var(--gray); text-align: center; margin-top: 1rem;">
+      <div style="margin: 0.5rem 0 1rem; padding: 1rem; background: rgba(59,130,246,0.08); border-radius: 8px; border-left: 3px solid var(--blue);">
+        <h4 style="color: var(--blue-glow); margin-bottom: 0.4rem; font-size: 0.95rem;">💰 Calculator rapid prețuri</h4>
+        <p style="font-size: 0.85rem; color: var(--gray); margin-bottom: 0.5rem;">Vrei să știi costul aproximativ înainte să trimiți mesajul?</p>
+        <a href="pricing-calculator.html" target="_blank" style="color: var(--accent); font-weight: 500; text-decoration: none; font-size: 0.9rem;">→ Calculează prețul instant</a>
+      </div>
+
+      <button type="submit" class="form-submit" id="submitBtn">Solicită consultație gratuită</button>
+      <p style="font-size: 0.8rem; color: var(--gray); text-align: center; margin-top: 0.75rem;">
         📞 Preferă să vorbești direct? Lasă numărul de telefon în mesaj și te sun eu.
       </p>
-    </form>
-  </div>
-</section>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Numele tău</label>
-          <input type="text" placeholder="Ion Popescu">
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="ion@firma.ro">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Firma</label>
-        <input type="text" placeholder="Firma SRL">
-      </div>
-      <div class="form-group">
-        <label>Serviciu de interes</label>
-        <select>
-          <option value="">Selectează un serviciu...</option>
-          <option>Site web de prezentare</option>
-          <option>Magazine online (E-commerce)</option>
-          <option>Automatizări & Chatboți</option>
-          <option>SEO & Optimizare</option>
-          <option>Design UI/UX</option>
-          <option>Altceva</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Mesaj</label>
-        <textarea placeholder="Descrie pe scurt proiectul tău, bugetul estimat și timeline-ul dorit..."></textarea>
-      </div>
-      <button type="submit" class="form-submit">Trimite mesajul →</button>
     </form>
   </div>
 </section>
@@ -1059,26 +931,73 @@
   <div style="color: var(--blue-glow);">Constanța, România</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll reveal animation
+<script>
+  // ── MOBILE MENU ──
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── SCROLL REVEAL ──
+  // Use CSS class approach — safer than inline styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  `;
+  document.head.appendChild(style);
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // stop observing once visible
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.service-card, .project-card, .project-add, .step').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(28px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  document.querySelectorAll('.service-card, .project-card, .step').forEach(el => {
+    el.classList.add('reveal');
     observer.observe(el);
   });
 
-  // Form handler
+  // ── FORM SUBMIT ──
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '✓ Mesaj trimis! Te contactez
+    const form = e.target;
+    const btn = document.getElementById('submitBtn');
+
+    // Basic validation
+    const name = form.querySelector('[name="name"]').value.trim();
+    const email = form.querySelector('[name="email"]').value.trim();
+    if (!name || !email) {
+      alert('Te rog completează câmpurile obligatorii: Nume și Email.');
+      return;
+    }
+
+    btn.textContent = '⏳ Se trimite...';
+    btn.disabled = true;
+
+    // Simulate send (replace with real endpoint if needed)
+    setTimeout(() => {
+      btn.textContent = '✓ Mesaj trimis! Te contactez în curând.';
+      btn.style.background = '#16a34a';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = 'Solicită consultație gratuită';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 5000);
+    }, 1200);
+  }
+</script>
+</body>
+</html>
