@@ -1,1 +1,1213 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumière Beauty Studio - Salon de înfrumusețare premium în Constanța</title>
+<meta name="description" content="Salon de înfrumusețare de lux în Constanța. Servicii complete de coafură, machiaj, tratamente faciale și corporale. Programează-te acum!">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose-gold: #E8B4A0;
+    --deep-rose: #D4A574;
+    --cream: #FAF7F4;
+    --soft-pink: #F5E6E8;
+    --charcoal: #2C2626;
+    --warm-gray: #8B7D7B;
+    --light-gray: #F0EDED;
+    --accent-pink: #E8A87C;
+    --shadow: rgba(44, 38, 38, 0.1);
+    --shadow-deep: rgba(44, 38, 38, 0.25);
+  }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--charcoal);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ═══ TYPOGRAPHY ═══ */
+  .serif { font-family: 'Playfair Display', serif; }
+  
+  h1, h2, h3 { 
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  .script-accent {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--deep-rose);
+  }
+
+  /* ═══ DECORATIVE ELEMENTS ═══ */
+  .ornament {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--rose-gold), transparent);
+    margin: 1.5rem auto;
+    position: relative;
+  }
+
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    width: 6px;
+    height: 6px;
+    background: var(--rose-gold);
+    border-radius: 50%;
+  }
+
+  .ornament::before { left: 10px; }
+  .ornament::after { right: 10px; }
+
+  /* ═══ FLOATING ELEMENTS ═══ */
+  .floating-element {
+    position: absolute;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .floating-1 {
+    top: 15%;
+    right: 8%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--accent-pink), transparent 70%);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .floating-2 {
+    bottom: 20%;
+    left: 10%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--rose-gold), transparent 70%);
+    border-radius: 50%;
+    animation: float 6s ease-in-out 2s infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(5deg); }
+    67% { transform: translateY(10px) rotate(-5deg); }
+  }
+
+  /* ═══ NAVIGATION ═══ */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 3rem;
+    background: rgba(250, 247, 244, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(232, 180, 160, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    text-decoration: none;
+    font-style: italic;
+  }
+
+  .logo .accent { color: var(--rose-gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--charcoal);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--rose-gold);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a:hover { color: var(--deep-rose); }
+
+  .btn-appointment {
+    background: linear-gradient(135deg, var(--rose-gold), var(--deep-rose));
+    color: white;
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(232, 180, 160, 0.3);
+  }
+
+  .btn-appointment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(232, 180, 160, 0.4);
+  }
+
+  /* ═══ HERO SECTION ═══ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 3rem;
+    position: relative;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 100%);
+    overflow: hidden;
+  }
+
+  .hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .hero-content {
+    animation: slideInLeft 1s ease-out;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--rose-gold);
+    color: var(--charcoal);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .hero .tagline {
+    font-size: 1.2rem;
+    color: var(--warm-gray);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--rose-gold), var(--deep-rose));
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(232, 180, 160, 0.3);
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(232, 180, 160, 0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--charcoal);
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--rose-gold);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--rose-gold);
+    color: white;
+    transform: translateY(-3px);
+  }
+
+  .hero-image {
+    position: relative;
+    animation: slideInRight 1s ease-out 0.2s both;
+  }
+
+  .hero-img-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(44, 38, 38, 0.15);
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+  }
+
+  .hero-img-container:hover { transform: rotate(0deg); }
+
+  .hero-img-placeholder {
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(135deg, var(--light-gray), var(--soft-pink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--warm-gray);
+    font-size: 1.2rem;
+  }
+
+  .hero-img-placeholder .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Floating stats */
+  .floating-stats {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(44, 38, 38, 0.1);
+    border: 1px solid rgba(232, 180, 160, 0.2);
+  }
+
+  .stat-1 {
+    top: 20%;
+    right: -10px;
+    width: 200px;
+    animation: floatUp 3s ease-in-out infinite;
+  }
+
+  .stat-2 {
+    bottom: 15%;
+    left: -15px;
+    width: 180px;
+    animation: floatUp 3s ease-in-out 1.5s infinite;
+  }
+
+  .floating-stats .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--rose-gold);
+    display: block;
+  }
+
+  .floating-stats .label {
+    font-size: 0.8rem;
+    color: var(--warm-gray);
+    font-weight: 400;
+  }
+
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* ═══ SERVICES SECTION ═══ */
+  .services {
+    padding: 8rem 3rem;
+    background: white;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    color: var(--rose-gold);
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-description {
+    font-size: 1.1rem;
+    color: var(--warm-gray);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+  }
+
+  .service-card {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    background: var(--cream);
+    border: 1px solid rgba(232, 180, 160, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose-gold), var(--deep-rose));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(44, 38, 38, 0.1);
+  }
+
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--rose-gold), var(--deep-rose));
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 10px 30px rgba(232, 180, 160, 0.3);
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--charcoal);
+  }
+
+  .service-card p {
+    color: var(--warm-gray);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--deep-rose);
+  }
+
+  /* ═══ GALLERY SECTION ═══ */
+  .gallery {
+    padding: 8rem 3rem;
+    background: var(--soft-pink);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .gallery-item {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(44, 38, 38, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+
+  .gallery-item:hover { transform: scale(1.05); }
+
+  .gallery-placeholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, var(--light-gray), var(--accent-pink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warm-gray);
+    font-size: 1rem;
+  }
+
+  /* ═══ TESTIMONIALS ═══ */
+  .testimonials {
+    padding: 8rem 3rem;
+    background: white;
+  }
+
+  .testimonial-slider {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    text-align: center;
+  }
+
+  .testimonial {
+    padding: 3rem;
+    background: var(--cream);
+    border-radius: 20px;
+    border: 1px solid rgba(232, 180, 160, 0.2);
+    position: relative;
+  }
+
+  .testimonial::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--rose-gold);
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    opacity: 0.3;
+  }
+
+  .testimonial-text {
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    font-style: italic;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .testimonial-author {
+    font-weight: 500;
+    color: var(--deep-rose);
+  }
+
+  .testimonial-role {
+    font-size: 0.9rem;
+    color: var(--warm-gray);
+  }
+
+  /* ═══ CONTACT SECTION ═══ */
+  .contact {
+    padding: 8rem 3rem;
+    background: linear-gradient(135deg, var(--charcoal), #3D3434);
+    color: white;
+  }
+
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    color: var(--rose-gold);
+    margin-bottom: 2rem;
+  }
+
+  .contact-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--rose-gold), var(--deep-rose));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .contact-text h4 {
+    color: var(--rose-gold);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+
+  .contact-text p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  /* Form */
+  .booking-form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(232, 180, 160, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  label {
+    display: block;
+    color: var(--rose-gold);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(232, 180, 160, 0.3);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--rose-gold);
+    box-shadow: 0 0 0 3px rgba(232, 180, 160, 0.2);
+  }
+
+  option {
+    background: var(--charcoal);
+    color: white;
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    background: #1A1A1A;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 3rem 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(232, 180, 160, 0.2);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--rose-gold);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .footer-tagline {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2rem;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .social-link {
+    width: 45px;
+    height: 45px;
+    background: rgba(232, 180, 160, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rose-gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    background: var(--rose-gold);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .footer-bottom {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* ═══ ANIMATIONS ═══ */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 900px) {
+    .nav-container {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .nav-links {
+      gap: 1.5rem;
+    }
+
+    .hero {
+      padding: 8rem 2rem 4rem;
+    }
+
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-image {
+      order: -1;
+    }
+
+    .floating-stats {
+      position: relative;
+      margin: 1rem auto;
+      width: fit-content !important;
+    }
+
+    .stat-1, .stat-2 {
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      bottom: auto;
+    }
+
+    .services, .gallery, .testimonials, .contact {
+      padding: 4rem 2rem;
+    }
+
+    .contact-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links {
+      display: none;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+
+  /* ═══ SCROLL ANIMATIONS ═══ */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<a href="index.html" style="position:fixed;top:1rem;left:1rem;z-index:9999;display:inline-flex;align-items:center;gap:0.5rem;background:rgba(10,15,30,0.85);border:1px solid rgba(59,130,246,0.3);color:#60a5fa;text-decoration:none;padding:0.5rem 1rem;border-radius:8px;font-size:0.85rem;font-weight:500;backdrop-filter:blur(12px);transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='#38bdf8';this.style.color='#38bdf8'" onmouseout="this.style.borderColor='rgba(59,130,246,0.3)';this.style.color='#60a5fa'">← Portofoliu</a>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">Lumière<span class="accent">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#servicii">Servicii</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#testimoniale">Testimoniale</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-appointment">Programează-te</a>
+  </div>
+</nav>
+
+<!-- Floating Elements -->
+<div class="floating-element floating-1"></div>
+<div class="floating-element floating-2"></div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">Premium Beauty Experience</div>
+      <h1>
+        Frumusețea ta <br>
+        <span class="script-accent">merită</span> <br>
+        atenție specială
+      </h1>
+      <p class="tagline">
+        Salon de înfrumusețare de lux în inima Constanței, unde fiecare detaliu este gândit pentru experiența ta perfectă
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Programează consultația</a>
+        <a href="#servicii" class="btn-secondary">Vezi serviciile</a>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <div class="hero-img-container">
+        <div class="hero-img-placeholder">
+          <div class="icon">💄</div>
+          <div>Imagine salon de lux</div>
+        </div>
+      </div>
+      
+      <!-- Floating Stats -->
+      <div class="floating-stats stat-1">
+        <span class="number">500+</span>
+        <span class="label">Cliente mulțumite</span>
+      </div>
+      <div class="floating-stats stat-2">
+        <span class="number">3</span>
+        <span class="label">Ani de experiență</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="services" id="servicii">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-subtitle">Serviciile noastre</div>
+      <h2 class="section-title">Experiențe de <span class="script-accent">frumusețe</span> complete</h2>
+      <div class="ornament"></div>
+      <p class="section-description">
+        De la coafură și machiaj la tratamente faciale premium — fiecare serviciu este personalizat pentru nevoile tale unice
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">💇‍♀️</div>
+        <h3>Coafură & Styling</h3>
+        <p>Tunsori moderne, coafuri elegante pentru evenimente speciale și tratamente profesionale pentru păr</p>
+        <div class="service-price">de la 120 RON</div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">💄</div>
+        <h3>Machiaj Professional</h3>
+        <p>Machiaj pentru evenimente, ședințe foto sau cursuri de machiaj personalizate</p>
+        <div class="service-price">de la 180 RON</div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">✨</div>
+        <h3>Tratamente Faciale</h3>
+        <p>Curățare profundă, hidratare intensivă și tratamente anti-aging cu produse premium</p>
+        <div class="service-price">de la 200 RON</div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">💅</div>
+        <h3>Manichiură & Pedichiură</h3>
+        <p>Tratamente complete pentru mâini și picioare cu lac clasic sau gel</p>
+        <div class="service-price">de la 80 RON</div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">👁️</div>
+        <h3>Gene & Sprâncene</h3>
+        <p>Extensii gene, laminare sprâncene și conturare perfectă</p>
+        <div class="service-price">de la 150 RON</div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">💆‍♀️</div>
+        <h3>Masaj Relaxant</h3>
+        <p>Masaj facial relaxant și tratamente corporale pentru o experiență completă</p>
+        <div class="service-price">de la 160 RON</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery" id="galerie">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-subtitle">Galeria noastră</div>
+      <h2 class="section-title">Transformări <span class="script-accent">spectaculoase</span></h2>
+      <div class="ornament"></div>
+      <p class="section-description">
+        Fiecare imagine spune povestea unei transformări - vezi rezultatele noastre și inspiră-te pentru următoarea ta vizită
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">Transformare coafură #1</div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">Machiaj de seară</div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">Tratament facial</div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">Extensii gene</div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">Nail art</div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">Sprâncene perfecte</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials" id="testimoniale">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-subtitle">Ce spun clientele</div>
+      <h2 class="section-title">Experiențe <span class="script-accent">reale</span></h2>
+      <div class="ornament"></div>
+    </div>
+
+    <div class="testimonial-slider fade-in">
+      <div class="testimonial">
+        <p class="testimonial-text">
+          "Echipa de la Lumière este absolut fantastică! M-am simțit ca o prințesă de la momentul în care am intrat în salon. Rezultatul a depășit toate așteptările mele. Recomand cu toată inima!"
+        </p>
+        <div class="testimonial-author">Maria Ionescu</div>
+        <div class="testimonial-role">Client regulat</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2>Programează-te astăzi</h2>
+      <p>
+        Vino să descoperi experiența Lumière - un salon unde frumusețea ta este prioritatea noastră. Contactează-ne pentru o consultație gratuită sau pentru a face o programare.
+      </p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-text">
+            <h4>Adresă</h4>
+            <p>Strada Mircea cel Bătrân 125<br>Constanța, România</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-text">
+            <h4>Telefon</h4>
+            <p>+40 341 234 567</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-text">
+            <h4>Email</h4>
+            <p>vasy_anghelus01@yahoo.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div class="contact-text">
+            <h4>Program</h4>
+            <p>Luni - Vineri: 9:00 - 20:00<br>Sâmbătă: 9:00 - 18:00<br>Duminică: Închis</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-form">
+      <h3 style="color: var(--rose-gold); margin-bottom: 2rem; text-align: center;">Formular de programare</h3>
+      
+      <form onsubmit="handleBookingSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">Prenume</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Maria" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Nume</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Ionescu" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" placeholder="+40 7xx xxx xxx" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="maria@email.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="service">Serviciu dorit</label>
+            <select id="service" name="service" required>
+              <option value="">Selectează serviciul...</option>
+              <option value="coafura">Coafură & Styling</option>
+              <option value="machiaj">Machiaj Professional</option>
+              <option value="facial">Tratamente Faciale</option>
+              <option value="manichiura">Manichiură & Pedichiură</option>
+              <option value="gene">Gene & Sprâncene</option>
+              <option value="masaj">Masaj Relaxant</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Data dorită</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mesaj suplimentar</label>
+          <textarea id="message" name="message" placeholder="Detalii speciale, alergii sau alte mențiuni..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">
+          Trimite programarea →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">Lumière Beauty Studio</div>
+    <p class="footer-tagline">Unde frumusețea ta prinde viață</p>
+    
+    <div class="social-links">
+      <a href="#" class="social-link">📘</a>
+      <a href="#" class="social-link">📷</a>
+      <a href="#" class="social-link">📱</a>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2026 Lumière Beauty Studio. Toate drepturile rezervate. | Constanța, România</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll animations
+  function revealOnScroll() {
+    const elements = document.querySelectorAll('.fade-in');
+    
+    elements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementVisible = 150;
+      
+      if (elementTop < window.innerHeight - elementVisible) {
+        element.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // Check on initial load
+
+  // Navbar background on scroll
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.style.background = 'rgba(250, 247, 244, 0.98)';
+      navbar.style.boxShadow = '0 2px 20px rgba(44, 38, 38, 0.1)';
+    } else {
+      navbar.style.background = 'rgba(250, 247, 244, 0.95)';
+      navbar.style.boxShadow = 'none';
+    }
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Form submission handler
+  function handleBookingSubmit(event) {
+    event.preventDefault();
+    
+    const submitButton = event.target.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    
+    // Simulate form submission
+    submitButton.textContent = '✓ Programare trimisă!';
+    submitButton.style.background = 'linear-gradient(135deg, #27AE60, #2ECC71)';
+    
+    setTimeout(() => {
+      submitButton.textContent = originalText;
+      submitButton.style.background = '';
+      event.target.reset();
+      
+      alert('Mulțumim pentru programare! Vă vom contacta în cel mai scurt timp pentru confirmare.');
+    }, 3000);
+  }
+
+  // Set minimum date for date input (today)
+  document.addEventListener('DOMContentLoaded
